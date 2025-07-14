@@ -78,7 +78,7 @@ const allTerms = ref([
     term: "국가부채",
     fullName: "National Debt",
     definition:
-      "중앙정부와 지방정부가 발행한 채권 등을 통해 부담하게 된 부채의 총액입니다.",
+      "중앙정부와 지방정부가 발행한 채권 등을 통해 부담하게 된 부채�� 총액입니다.",
     example: "한국의 국가부채는 GDP 대비 50% 수준을 유지하고 있습니다.",
     category: "재정",
     bookmark: false,
@@ -415,7 +415,7 @@ watch(searchQuery, () => {
   z-index: 100;
 }
 
-.dark-mode .terms-header {
+:root.dark .terms-header {
   background: rgba(15, 23, 42, 0.95);
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
