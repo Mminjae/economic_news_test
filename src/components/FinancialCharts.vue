@@ -624,6 +624,13 @@ onMounted(() => {
   background: white;
   border-bottom: 1px solid #e2e8f0;
   padding: 1.5rem 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+:root.dark .asset-filters {
+  background: #1e293b;
+  border-bottom-color: #334155;
 }
 
 .filter-container {
