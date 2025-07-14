@@ -80,7 +80,7 @@ const onBookmarkClick = (event) => {
 
       <div class="news-footer">
         <span class="news-author">By {{ news.author }}</span>
-        <span class="read-more">Read more →</span>
+        <span class="read-more">더보기 →</span>
       </div>
     </div>
   </article>
