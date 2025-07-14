@@ -948,6 +948,11 @@ onMounted(() => {
   border: 1px solid #e2e8f0;
 }
 
+:root.dark .chart-wrapper {
+  background: #0f172a;
+  border-color: #334155;
+}
+
 .line-chart {
   width: 100%;
   height: auto;
