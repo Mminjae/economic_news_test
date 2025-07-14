@@ -69,7 +69,7 @@ const allTerms = ref([
     term: "환율",
     fullName: "Exchange Rate",
     definition: "한 나라의 화폐와 다른 나라 화폐 사이의 교환비율을 의미합니다.",
-    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습니다.",
+    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습���다.",
     category: "외환",
     bookmark: false,
   },
@@ -98,7 +98,7 @@ const allTerms = ref([
     term: "ESG",
     fullName: "Environmental, Social, and Governance",
     definition:
-      "환경(Environmental), 사회(Social), 지배구조(Governance)를 ��려한 지속가능경영 평가 기준입니다.",
+      "환경(Environmental), 사회(Social), 지배구조(Governance)를 고려한 지속가능경영 평가 기준입니다.",
     example:
       "많은 기업들이 ESG 경영을 통해 지속가능한 발전을 추구하고 있습니다.",
     category: "지속가능성",
@@ -237,15 +237,6 @@ watch(searchQuery, () => {
           <p class="page-subtitle">
             경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
           </p>
-        </div>
-        <div class="header-actions">
-          <button
-            @click="toggleDarkMode"
-            class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
-          >
-            {{ isDarkMode ? "☀️" : "🌙" }}
-          </button>
         </div>
       </div>
     </header>
