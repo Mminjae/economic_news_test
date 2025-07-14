@@ -367,11 +367,11 @@ onMounted(() => {
   }
 }
 
-/* Global styles for dark mode support */
+/* Global styles for yellow/white theme */
 :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #1e40af;
-  --accent-color: #fbbf24;
+  --primary-color: #fbbf24;
+  --secondary-color: #f59e0b;
+  --accent-color: #fcd34d;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
@@ -379,8 +379,8 @@ onMounted(() => {
   --text-primary: #111827;
   --text-secondary: #6b7280;
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --border-color: #e5e7eb;
+  --bg-secondary: #fffbeb;
+  --border-color: #fde68a;
 
   /* Responsive breakpoints */
   --bp-mobile: 480px;
