@@ -77,7 +77,6 @@ const loadBookmarks = () => {
 // Lifecycle
 onMounted(() => {
   loadBookmarks();
-  loadDarkMode();
 });
 </script>
 
