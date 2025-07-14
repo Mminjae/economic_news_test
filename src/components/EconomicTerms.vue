@@ -8,7 +8,7 @@ const allTerms = ref([
     term: "GDP",
     fullName: "Gross Domestic Product (국내총생산)",
     definition:
-      "한 나라의 영토 내에서 일정 기간 ���안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
+      "한 나라의 영토 내에서 일정 기��� 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
     example: "2023년 한국의 GDP는 약 2,080조원으로 세계 10위를 기록했습니다.",
     category: "거시경제",
     bookmark: false,
@@ -768,7 +768,7 @@ watch(searchQuery, () => {
   font-size: 0.95rem;
 }
 
-.dark-mode .term-preview {
+:root.dark .term-preview {
   color: #cbd5e1;
 }
 
