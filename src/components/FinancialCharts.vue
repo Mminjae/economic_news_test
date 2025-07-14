@@ -53,7 +53,7 @@ const mockAssetData = {
     },
     {
       id: 6,
-      name: "SK하이���스",
+      name: "SK하이닉스",
       symbol: "000660",
       price: 128000,
       change: -0.5,
@@ -732,6 +732,11 @@ onMounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+}
+
+:root.dark .asset-card {
+  background: #1e293b;
+  border-color: #334155;
 }
 
 .asset-card::before {
