@@ -376,10 +376,10 @@ onMounted(() => {
   white-space: nowrap;
 }
 
-.dark-mode .bookmark-filter {
-  background: #374151;
-  border-color: #4b5563;
-  color: #e0e6ed;
+:root.dark .bookmark-filter {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .bookmark-filter:hover {
