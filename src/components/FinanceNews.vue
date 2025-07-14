@@ -10,7 +10,6 @@ const searchQuery = ref("");
 const selectedNews = ref(null);
 const bookmarks = ref(new Set());
 const showBookmarksOnly = ref(false);
-const isDarkMode = ref(false);
 
 // Computed properties
 const filteredNews = computed(() => {
@@ -64,12 +63,6 @@ const toggleBookmarksFilter = () => {
   showBookmarksOnly.value = !showBookmarksOnly.value;
 };
 
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle("dark", isDarkMode.value);
-  localStorage.setItem("darkMode", isDarkMode.value);
-};
-
 const saveBookmarks = () => {
   localStorage.setItem("newsBookmarks", JSON.stringify([...bookmarks.value]));
 };
@@ -81,38 +74,20 @@ const loadBookmarks = () => {
   }
 };
 
-const loadDarkMode = () => {
-  const saved = localStorage.getItem("darkMode");
-  if (saved !== null) {
-    isDarkMode.value = JSON.parse(saved);
-    document.documentElement.classList.toggle("dark", isDarkMode.value);
-  }
-};
-
 // Lifecycle
 onMounted(() => {
   loadBookmarks();
-  loadDarkMode();
 });
 </script>
 
 <template>
-  <div class="finance-news" :class="{ 'dark-mode': isDarkMode }">
+  <div class="finance-news">
     <!-- Header -->
     <header class="news-header">
       <div class="header-content">
         <div class="header-left">
           <div class="news-title">📰 금융 뉴스</div>
           <p class="news-subtitle">최신 금융 뉴스와 시장 동향을 확인하세요</p>
-        </div>
-        <div class="header-actions">
-          <button
-            @click="toggleDarkMode"
-            class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
-          >
-            {{ isDarkMode ? "☀️" : "🌙" }}
-          </button>
         </div>
       </div>
     </header>
@@ -124,7 +99,7 @@ onMounted(() => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="제목, 내용, 출처, 카테고리로 뉴스 검색..."
+            placeholder="��목, 내용, 출처, 카테고리로 뉴스 검색..."
             class="search-input"
           />
           <span class="search-icon">🔍</span>
@@ -213,28 +188,68 @@ onMounted(() => {
 <style scoped>
 .finance-news {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.finance-news.dark-mode {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #e0e6ed;
+.finance-news::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(59, 130, 246, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(16, 185, 129, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root.dark .finance-news {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
 }
 
 /* Header Styles */
 .news-header {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 2rem 1rem;
+  padding: 1.25rem 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
-.dark-mode .news-header {
-  background: rgba(26, 26, 46, 0.95);
+.news-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+}
+
+:root.dark .news-header {
+  background: rgba(15, 23, 42, 0.95);
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -247,9 +262,9 @@ onMounted(() => {
 }
 
 .news-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -313,24 +328,24 @@ onMounted(() => {
 .search-input {
   width: 100%;
   padding: 1rem 1rem 1rem 3rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
   font-size: 1rem;
   background: white;
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.dark-mode .search-input {
-  background: #374151;
-  border-color: #4b5563;
-  color: #e0e6ed;
+:root.dark .search-input {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
 }
 
 .search-icon {
@@ -361,21 +376,21 @@ onMounted(() => {
   white-space: nowrap;
 }
 
-.dark-mode .bookmark-filter {
-  background: #374151;
-  border-color: #4b5563;
-  color: #e0e6ed;
+:root.dark .bookmark-filter {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .bookmark-filter:hover {
-  border-color: #667eea;
+  border-color: #f59e0b;
   transform: translateY(-2px);
 }
 
 .bookmark-filter.active {
-  background: #667eea;
+  background: #f59e0b;
   color: white;
-  border-color: #667eea;
+  border-color: #f59e0b;
 }
 
 .bookmark-count {

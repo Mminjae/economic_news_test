@@ -26,12 +26,12 @@ const formattedDate = computed(() => {
 
 const categoryColor = computed(() => {
   const colors = {
-    "Monetary Policy": "#3b82f6",
-    "Stock Market": "#10b981",
-    Cryptocurrency: "#f59e0b",
-    Banking: "#8b5cf6",
-    Commodities: "#ef4444",
-    "International Markets": "#06b6d4",
+    통화정책: "#3b82f6",
+    주식시장: "#10b981",
+    암호화폐: "#f59e0b",
+    은행업: "#8b5cf6",
+    원자재: "#ef4444",
+    해외시장: "#06b6d4",
   };
   return colors[props.news.category] || "#6b7280";
 });
@@ -44,34 +44,29 @@ const onBookmarkClick = (event) => {
 
 <template>
   <article class="news-card" @click="$emit('click')">
-    <!-- Image Section -->
-    <div class="news-image-container">
-      <img
-        :src="news.imageUrl"
-        :alt="news.title"
-        class="news-image"
-        loading="lazy"
-      />
-      <div class="image-overlay">
-        <span class="category-tag" :style="{ backgroundColor: categoryColor }">
-          {{ news.category }}
-        </span>
-        <button
-          @click="onBookmarkClick"
-          class="bookmark-btn"
-          :class="{ bookmarked: isBookmarked }"
-          :title="isBookmarked ? '북마크에서 제거' : '북마크에 추가'"
-        >
-          {{ isBookmarked ? "⭐" : "☆" }}
-        </button>
-      </div>
-    </div>
-
     <!-- Content Section -->
     <div class="news-content">
-      <div class="news-meta">
-        <span class="news-source">{{ news.source }}</span>
-        <span class="news-date">{{ formattedDate }}</span>
+      <div class="news-header">
+        <div class="news-meta">
+          <span
+            class="category-tag"
+            :style="{ backgroundColor: categoryColor }"
+          >
+            {{ news.category }}
+          </span>
+          <button
+            @click="onBookmarkClick"
+            class="bookmark-btn"
+            :class="{ bookmarked: isBookmarked }"
+            :title="isBookmarked ? '북마크에서 제거' : '북마크에 추가'"
+          >
+            {{ isBookmarked ? "⭐" : "☆" }}
+          </button>
+        </div>
+        <div class="source-date">
+          <span class="news-source">{{ news.source }}</span>
+          <span class="news-date">{{ formattedDate }}</span>
+        </div>
       </div>
 
       <h3 class="news-title">{{ news.title }}</h3>
@@ -97,6 +92,18 @@ const onBookmarkClick = (event) => {
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  border-radius: 16px 16px 0 0;
 }
 
 :root.dark .news-card {
@@ -120,72 +127,58 @@ const onBookmarkClick = (event) => {
     0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-/* Image Section */
-.news-image-container {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
+/* Content Section */
+.news-content {
+  padding: 1.5rem;
 }
 
-.news-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.news-header {
+  margin-bottom: 1.5rem;
 }
 
-.news-card:hover .news-image {
-  transform: scale(1.05);
-}
-
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    transparent 30%,
-    transparent 70%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+.news-meta {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
 .category-tag {
   background: #3b82f6;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .bookmark-btn {
-  background: rgba(255, 255, 255, 0.9);
+  background: #f3f4f6;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+}
+
+:root.dark .bookmark-btn {
+  background: #4b5563;
 }
 
 .bookmark-btn:hover {
-  background: rgba(255, 255, 255, 1);
+  background: #e5e7eb;
   transform: scale(1.1);
+}
+
+:root.dark .bookmark-btn:hover {
+  background: #6b7280;
 }
 
 .bookmark-btn.bookmarked {
@@ -193,16 +186,10 @@ const onBookmarkClick = (event) => {
   color: white;
 }
 
-/* Content Section */
-.news-content {
-  padding: 1.5rem;
-}
-
-.news-meta {
+.source-date {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
   font-size: 0.85rem;
 }
 
@@ -226,7 +213,7 @@ const onBookmarkClick = (event) => {
 }
 
 .news-title {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 1rem;
@@ -235,6 +222,11 @@ const onBookmarkClick = (event) => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.news-card:hover .news-title {
+  color: #667eea;
 }
 
 :root.dark .news-title {
@@ -298,10 +290,6 @@ const onBookmarkClick = (event) => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .news-image-container {
-    height: 180px;
-  }
-
   .news-content {
     padding: 1.25rem;
   }
@@ -315,14 +303,20 @@ const onBookmarkClick = (event) => {
   }
 
   .category-tag {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
   }
 
   .bookmark-btn {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     font-size: 1rem;
+  }
+
+  .source-date {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
 }
 
@@ -330,7 +324,7 @@ const onBookmarkClick = (event) => {
   .news-meta {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
 
   .news-footer {

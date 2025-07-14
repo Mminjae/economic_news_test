@@ -1,17 +1,377 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import FinanceNews from "./components/FinanceNews.vue";
+import FinancialCharts from "./components/FinancialCharts.vue";
+import EconomicTerms from "./components/EconomicTerms.vue";
+import EconomicQuiz from "./components/EconomicQuiz.vue";
+import UserProfile from "./components/UserProfile.vue";
+
+// Tab management
+const activeTab = ref("news");
+
+// Global dark mode management
+const isDarkMode = ref(false);
+
+const tabs = [
+  { id: "news", label: "경제 뉴스", icon: "📰", component: "FinanceNews" },
+  {
+    id: "charts",
+    label: "금융 차트",
+    icon: "📈",
+    component: "FinancialCharts",
+  },
+  { id: "terms", label: "경제 용어", icon: "📚", component: "EconomicTerms" },
+  { id: "quiz", label: "경제 퀴즈", icon: "🧠", component: "EconomicQuiz" },
+  { id: "profile", label: "프로필", icon: "👤", component: "UserProfile" },
+];
+
+const setActiveTab = (tabId) => {
+  activeTab.value = tabId;
+};
+
+const handleNavigation = (tabId) => {
+  setActiveTab(tabId);
+};
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+  document.documentElement.classList.toggle("dark", isDarkMode.value);
+  localStorage.setItem("globalDarkMode", isDarkMode.value);
+};
+
+const loadDarkMode = () => {
+  const saved = localStorage.getItem("globalDarkMode");
+  if (saved !== null) {
+    isDarkMode.value = JSON.parse(saved);
+    document.documentElement.classList.toggle("dark", isDarkMode.value);
+  }
+};
+
+// Lifecycle
+onMounted(() => {
+  loadDarkMode();
+});
 </script>
 
 <template>
-  <FinanceNews />
+  <div class="app">
+    <!-- Tab Navigation -->
+    <nav class="tab-navigation">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h1 class="brand-title">💼 경제 포털</h1>
+        </div>
+        <div class="nav-center">
+          <div class="nav-tabs">
+            <button
+              v-for="tab in tabs"
+              :key="tab.id"
+              @click="setActiveTab(tab.id)"
+              class="nav-tab"
+              :class="{ active: activeTab === tab.id }"
+            >
+              <span class="tab-icon">{{ tab.icon }}</span>
+              <span class="tab-label">{{ tab.label }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button
+            @click="toggleDarkMode"
+            class="dark-mode-toggle"
+            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
+          >
+            {{ isDarkMode ? "☀️" : "🌙" }}
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tab Content -->
+    <main class="tab-content">
+      <FinanceNews v-if="activeTab === 'news'" />
+      <FinancialCharts v-else-if="activeTab === 'charts'" />
+      <EconomicTerms v-else-if="activeTab === 'terms'" />
+      <EconomicQuiz
+        v-else-if="activeTab === 'quiz'"
+        @navigate="handleNavigation"
+      />
+      <UserProfile v-else-if="activeTab === 'profile'" />
+    </main>
+  </div>
 </template>
 
 <style>
-/* Global styles for dark mode support */
+/* App Layout */
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-brand {
+  flex-shrink: 0;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dark-mode-toggle {
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  border-color: #f59e0b;
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.nav-tab {
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(251, 191, 36, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.nav-tab:hover::before {
+  left: 100%;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+  border-color: rgba(251, 191, 36, 0.2);
+  background: rgba(251, 191, 36, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-tab.active {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+.nav-tab.active::before {
+  display: none;
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+}
+
+.tab-label {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.tab-content {
+  flex: 1;
+}
+
+/* Dark mode support for navigation */
+:root.dark .tab-navigation {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+:root.dark .nav-tab {
+  color: var(--text-secondary);
+}
+
+:root.dark .nav-tab:hover {
+  color: var(--text-primary);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+:root.dark .nav-tab.active {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  color: #451a03;
+}
+
+/* Responsive Design for Navigation */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .nav-center {
+    order: 2;
+    width: 100%;
+  }
+
+  .nav-actions {
+    order: 3;
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-tab {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .tab-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-tab {
+    padding: 0.75rem 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tab-icon {
+    font-size: 1.2rem;
+  }
+
+  .tab-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.75rem;
+  }
+
+  .brand-title {
+    font-size: 1.4rem;
+  }
+
+  .nav-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .nav-tab {
+    padding: 0.75rem 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tab-icon {
+    font-size: 1.1rem;
+  }
+
+  .tab-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Global styles for yellow/white theme */
 :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #1e40af;
-  --accent-color: #fbbf24;
+  --primary-color: #fbbf24;
+  --secondary-color: #f59e0b;
+  --accent-color: #fcd34d;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
@@ -19,16 +379,35 @@ import FinanceNews from "./components/FinanceNews.vue";
   --text-primary: #111827;
   --text-secondary: #6b7280;
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --border-color: #e5e7eb;
+  --bg-secondary: #fffbeb;
+  --border-color: #fde68a;
+
+  /* Responsive breakpoints */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-wide: 1200px;
+
+  /* Unified spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
 }
 
 :root.dark {
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --bg-primary: #1f2937;
-  --bg-secondary: #111827;
-  --border-color: #374151;
+  --text-primary: #fef3c7;
+  --text-secondary: #d97706;
+  --bg-primary: #451a03;
+  --bg-secondary: #78350f;
+  --border-color: #92400e;
 }
 
 * {

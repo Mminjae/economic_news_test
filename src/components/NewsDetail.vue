@@ -28,12 +28,12 @@ const formattedDate = computed(() => {
 
 const categoryColor = computed(() => {
   const colors = {
-    "Monetary Policy": "#3b82f6",
-    "Stock Market": "#10b981",
-    Cryptocurrency: "#f59e0b",
-    Banking: "#8b5cf6",
-    Commodities: "#ef4444",
-    "International Markets": "#06b6d4",
+    통화정책: "#3b82f6",
+    주식시장: "#10b981",
+    암호화폐: "#f59e0b",
+    은행업: "#8b5cf6",
+    원자재: "#ef4444",
+    해외시장: "#06b6d4",
   };
   return colors[props.news.category] || "#6b7280";
 });
@@ -96,11 +96,6 @@ onUnmounted(() => {
 
       <!-- Modal Content -->
       <div class="modal-content">
-        <!-- Hero Image -->
-        <div class="hero-image-container">
-          <img :src="news.imageUrl" :alt="news.title" class="hero-image" />
-        </div>
-
         <!-- Article Content -->
         <article class="article-content">
           <h1 class="article-title">{{ news.title }}</h1>
@@ -316,20 +311,9 @@ onUnmounted(() => {
   overflow-y: auto;
 }
 
-.hero-image-container {
-  height: 300px;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* Article Content */
 .article-content {
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
 .article-title {
@@ -527,10 +511,6 @@ onUnmounted(() => {
 
   .article-title {
     font-size: 1.5rem;
-  }
-
-  .hero-image-container {
-    height: 200px;
   }
 
   .article-meta {
