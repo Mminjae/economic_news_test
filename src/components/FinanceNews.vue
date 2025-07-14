@@ -99,7 +99,7 @@ onMounted(() => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="제목, 내용, 출처, 카테고리로 뉴스 검색..."
+            placeholder="��목, 내용, 출처, 카테고리로 뉴스 검색..."
             class="search-input"
           />
           <span class="search-icon">🔍</span>
@@ -383,14 +383,14 @@ onMounted(() => {
 }
 
 .bookmark-filter:hover {
-  border-color: #667eea;
+  border-color: #f59e0b;
   transform: translateY(-2px);
 }
 
 .bookmark-filter.active {
-  background: #667eea;
+  background: #f59e0b;
   color: white;
-  border-color: #667eea;
+  border-color: #f59e0b;
 }
 
 .bookmark-count {
