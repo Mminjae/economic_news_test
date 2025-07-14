@@ -230,7 +230,7 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 2rem 1rem;
+  padding: 1.25rem 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
