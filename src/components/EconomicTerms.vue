@@ -69,7 +69,7 @@ const allTerms = ref([
     term: "환율",
     fullName: "Exchange Rate",
     definition: "한 나라의 화폐와 다른 나라 화폐 사이의 교환비율을 의미합니다.",
-    example: "달러 강세로 ���/달러 환율이 1,350원대까지 상승했습니다.",
+    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습니다.",
     category: "외환",
     bookmark: false,
   },
@@ -79,7 +79,7 @@ const allTerms = ref([
     fullName: "National Debt",
     definition:
       "중앙정부와 지방정부가 발행한 채권 등을 통해 부담하게 된 부채의 총액입니다.",
-    example: "한국의 국가부채는 GDP 대비 50% 수준을 유지하고 있습니다.",
+    example: "한국의 국가부채는 GDP 대비 50% 수준을 유��하고 있습니다.",
     category: "재정",
     bookmark: false,
   },
@@ -659,7 +659,7 @@ watch(searchQuery, () => {
   overflow: hidden;
 }
 
-.dark-mode .term-card {
+:root.dark .term-card {
   background: #1e293b;
   border-color: #334155;
 }
