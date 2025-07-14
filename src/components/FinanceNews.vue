@@ -10,7 +10,6 @@ const searchQuery = ref("");
 const selectedNews = ref(null);
 const bookmarks = ref(new Set());
 const showBookmarksOnly = ref(false);
-const isDarkMode = ref(false);
 
 // Computed properties
 const filteredNews = computed(() => {
