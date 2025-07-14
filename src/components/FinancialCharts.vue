@@ -897,6 +897,10 @@ onMounted(() => {
   border-radius: 12px;
 }
 
+:root.dark .time-filters {
+  background: #0f172a;
+}
+
 .time-filter {
   background: transparent;
   border: none;
@@ -908,15 +912,28 @@ onMounted(() => {
   color: #64748b;
 }
 
+:root.dark .time-filter {
+  color: #94a3b8;
+}
+
 .time-filter:hover {
   background: white;
   color: #1e293b;
+}
+
+:root.dark .time-filter:hover {
+  background: #334155;
+  color: #f1f5f9;
 }
 
 .time-filter.active {
   background: #667eea;
   color: white;
   box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+:root.dark .time-filter.active {
+  background: #3b82f6;
 }
 
 /* Chart */
