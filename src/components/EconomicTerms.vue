@@ -8,7 +8,7 @@ const allTerms = ref([
     term: "GDP",
     fullName: "Gross Domestic Product (국내총생산)",
     definition:
-      "한 나라의 영토 내��서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
+      "한 나라의 영토 내에서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
     example: "2023년 한국의 GDP는 약 2,080조원으로 세계 10위를 기록했습니다.",
     category: "거시경제",
     bookmark: false,
@@ -45,7 +45,7 @@ const allTerms = ref([
   },
   {
     id: 5,
-    term: "��적완화",
+    term: "양적완화",
     fullName: "Quantitative Easing (QE)",
     definition:
       "중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 통화정책입니다.",
@@ -831,7 +831,7 @@ watch(searchQuery, () => {
   animation: slideUp 0.3s ease;
 }
 
-.dark-mode .modal-container {
+:root.dark .modal-container {
   background: #1e293b;
 }
 
