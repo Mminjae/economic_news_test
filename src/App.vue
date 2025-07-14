@@ -180,8 +180,8 @@ onMounted(() => {
 
 .dark-mode-toggle:hover {
   transform: scale(1.1);
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
+  border-color: #f59e0b;
+  background: rgba(251, 191, 36, 0.1);
 }
 
 .nav-tab {
