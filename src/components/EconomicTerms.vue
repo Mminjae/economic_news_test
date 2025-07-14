@@ -746,7 +746,7 @@ watch(searchQuery, () => {
   color: #1e293b;
 }
 
-.dark-mode .term-title {
+:root.dark .term-title {
   color: #f1f5f9;
 }
 
