@@ -194,7 +194,7 @@ onMounted(() => {
           "
           class="reset-filters-btn"
         >
-          Show all articles
+          모든 기사 보기
         </button>
       </div>
     </main>
