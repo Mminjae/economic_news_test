@@ -136,7 +136,7 @@ onUnmounted(() => {
             </div>
 
             <div class="share-actions">
-              <span class="share-text">Share this article:</span>
+              <span class="share-text">이 기사 공유하기:</span>
               <div class="share-buttons">
                 <button class="share-btn twitter" title="Share on Twitter">
                   🐦
