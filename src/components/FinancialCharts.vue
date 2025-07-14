@@ -645,6 +645,10 @@ onMounted(() => {
   color: #374151;
 }
 
+:root.dark .filter-title {
+  color: #f1f5f9;
+}
+
 .filter-tabs {
   display: flex;
   gap: 1rem;
