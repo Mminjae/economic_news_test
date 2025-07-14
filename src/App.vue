@@ -135,9 +135,9 @@ onMounted(() => {
 
 .brand-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
