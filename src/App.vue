@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import FinanceNews from "./components/FinanceNews.vue";
 import FinancialCharts from "./components/FinancialCharts.vue";
 import EconomicTerms from "./components/EconomicTerms.vue";
@@ -7,6 +7,9 @@ import EconomicQuiz from "./components/EconomicQuiz.vue";
 
 // Tab management
 const activeTab = ref("news");
+
+// Global dark mode management
+const isDarkMode = ref(false);
 
 const tabs = [
   { id: "news", label: "경제 뉴스", icon: "📰", component: "FinanceNews" },
@@ -23,6 +26,25 @@ const tabs = [
 const setActiveTab = (tabId) => {
   activeTab.value = tabId;
 };
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+  document.documentElement.classList.toggle("dark", isDarkMode.value);
+  localStorage.setItem("globalDarkMode", isDarkMode.value);
+};
+
+const loadDarkMode = () => {
+  const saved = localStorage.getItem("globalDarkMode");
+  if (saved !== null) {
+    isDarkMode.value = JSON.parse(saved);
+    document.documentElement.classList.toggle("dark", isDarkMode.value);
+  }
+};
+
+// Lifecycle
+onMounted(() => {
+  loadDarkMode();
+});
 </script>
 
 <template>
@@ -33,16 +55,27 @@ const setActiveTab = (tabId) => {
         <div class="nav-brand">
           <h1 class="brand-title">💼 경제 포털</h1>
         </div>
-        <div class="nav-tabs">
+        <div class="nav-center">
+          <div class="nav-tabs">
+            <button
+              v-for="tab in tabs"
+              :key="tab.id"
+              @click="setActiveTab(tab.id)"
+              class="nav-tab"
+              :class="{ active: activeTab === tab.id }"
+            >
+              <span class="tab-icon">{{ tab.icon }}</span>
+              <span class="tab-label">{{ tab.label }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions">
           <button
-            v-for="tab in tabs"
-            :key="tab.id"
-            @click="setActiveTab(tab.id)"
-            class="nav-tab"
-            :class="{ active: activeTab === tab.id }"
+            @click="toggleDarkMode"
+            class="dark-mode-toggle"
+            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
           >
-            <span class="tab-icon">{{ tab.icon }}</span>
-            <span class="tab-label">{{ tab.label }}</span>
+            {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
         </div>
       </div>
