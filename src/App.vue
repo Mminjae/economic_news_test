@@ -403,11 +403,11 @@ onMounted(() => {
 }
 
 :root.dark {
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --bg-primary: #1f2937;
-  --bg-secondary: #111827;
-  --border-color: #374151;
+  --text-primary: #fef3c7;
+  --text-secondary: #d97706;
+  --bg-primary: #451a03;
+  --bg-secondary: #78350f;
+  --border-color: #92400e;
 }
 
 * {
