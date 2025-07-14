@@ -89,6 +89,7 @@ onMounted(() => {
       <FinancialCharts v-else-if="activeTab === 'charts'" />
       <EconomicTerms v-else-if="activeTab === 'terms'" />
       <EconomicQuiz v-else-if="activeTab === 'quiz'" />
+      <UserProfile v-else-if="activeTab === 'profile'" />
     </main>
   </div>
 </template>
