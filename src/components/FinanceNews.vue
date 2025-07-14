@@ -294,7 +294,7 @@ onMounted(() => {
 .search-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem 2rem;
 }
 
 .search-container {
