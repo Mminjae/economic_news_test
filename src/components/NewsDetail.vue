@@ -88,7 +88,7 @@ onUnmounted(() => {
           >
             {{ isBookmarked ? "⭐" : "☆" }}
           </button>
-          <button @click="$emit('close')" class="close-btn" title="Close">
+          <button @click="$emit('close')" class="close-btn" title="닫기">
             ✕
           </button>
         </div>
