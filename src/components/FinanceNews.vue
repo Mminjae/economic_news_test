@@ -109,7 +109,7 @@ onMounted(() => {
           <button
             @click="toggleDarkMode"
             class="dark-mode-toggle"
-            :title="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
           >
             {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
