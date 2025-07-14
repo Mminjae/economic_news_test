@@ -79,7 +79,7 @@ const onBookmarkClick = (event) => {
       <p class="news-summary">{{ news.summary }}</p>
 
       <div class="news-footer">
-        <span class="news-author">By {{ news.author }}</span>
+        <span class="news-author">작성자: {{ news.author }}</span>
         <span class="read-more">더보기 →</span>
       </div>
     </div>
