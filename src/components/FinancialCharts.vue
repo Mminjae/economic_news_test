@@ -53,7 +53,7 @@ const mockAssetData = {
     },
     {
       id: 6,
-      name: "SK하이닉스",
+      name: "SK하이���스",
       symbol: "000660",
       price: 128000,
       change: -0.5,
@@ -680,11 +680,21 @@ onMounted(() => {
   transform: translateY(-2px);
 }
 
+:root.dark .filter-tab:hover {
+  border-color: #60a5fa;
+  background: #334155;
+}
+
 .filter-tab.active {
   background: #667eea;
   color: white;
   border-color: #667eea;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+:root.dark .filter-tab.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
 }
 
 .tab-icon {
