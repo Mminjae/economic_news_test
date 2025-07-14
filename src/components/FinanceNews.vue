@@ -220,9 +220,9 @@ onMounted(() => {
   z-index: 0;
 }
 
-.finance-news.dark-mode {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #e0e6ed;
+:root.dark .finance-news {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
 }
 
 /* Header Styles */
