@@ -63,12 +63,6 @@ const toggleBookmarksFilter = () => {
   showBookmarksOnly.value = !showBookmarksOnly.value;
 };
 
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle("dark", isDarkMode.value);
-  localStorage.setItem("darkMode", isDarkMode.value);
-};
-
 const saveBookmarks = () => {
   localStorage.setItem("newsBookmarks", JSON.stringify([...bookmarks.value]));
 };
