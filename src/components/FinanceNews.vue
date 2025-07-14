@@ -146,11 +146,10 @@ onMounted(() => {
 
       <div class="results-info">
         <span class="results-count">
-          {{ filteredNews.length }}
-          {{ filteredNews.length === 1 ? "article" : "articles" }} found
+          {{ filteredNews.length }}개의 기사를 찾았습니다
         </span>
         <span v-if="showBookmarksOnly" class="filter-indicator">
-          • Showing bookmarked articles only
+          • 북마크된 기사만 표시
         </span>
       </div>
     </section>
