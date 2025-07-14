@@ -213,7 +213,7 @@ const onBookmarkClick = (event) => {
 }
 
 .news-title {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 1rem;
@@ -222,6 +222,11 @@ const onBookmarkClick = (event) => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.news-card:hover .news-title {
+  color: #667eea;
 }
 
 :root.dark .news-title {
