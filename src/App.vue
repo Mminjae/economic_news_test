@@ -59,7 +59,7 @@ onMounted(() => {
     <nav class="tab-navigation">
       <div class="nav-container">
         <div class="nav-brand">
-          <h1 class="brand-title">💼 ���제 포털</h1>
+          <h1 class="brand-title">💼 경제 포털</h1>
         </div>
         <div class="nav-center">
           <div class="nav-tabs">
@@ -381,6 +381,25 @@ onMounted(() => {
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --border-color: #e5e7eb;
+
+  /* Responsive breakpoints */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-wide: 1200px;
+
+  /* Unified spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
 }
 
 :root.dark {
