@@ -105,15 +105,6 @@ onMounted(() => {
           <div class="news-title">📰 금융 뉴스</div>
           <p class="news-subtitle">최신 금융 뉴스와 시장 동향을 확인하세요</p>
         </div>
-        <div class="header-actions">
-          <button
-            @click="toggleDarkMode"
-            class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
-          >
-            {{ isDarkMode ? "☀️" : "🌙" }}
-          </button>
-        </div>
       </div>
     </header>
 
