@@ -180,7 +180,7 @@ onMounted(() => {
         <p class="empty-message">
           {{
             showBookmarksOnly
-              ? "기사를 북마크하여 여기서 확인하세요"
+              ? "기사를 ���마크하여 여기서 확인하세요"
               : searchQuery
                 ? "검색어를 다시 확인해보세요"
                 : "새로운 기사를 기다려주세요"
@@ -313,11 +313,12 @@ onMounted(() => {
 .search-input {
   width: 100%;
   padding: 1rem 1rem 1rem 3rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
   font-size: 1rem;
   background: white;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode .search-input {
