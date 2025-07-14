@@ -539,6 +539,32 @@ onMounted(() => {
   border-bottom-color: #334155;
 }
 
+:root.dark .header-title h1 {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root.dark .header-subtitle {
+  color: #94a3b8;
+}
+
+:root.dark .favorites-toggle {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:root.dark .favorites-toggle:hover {
+  border-color: #60a5fa;
+}
+
+:root.dark .favorites-toggle.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
 .dashboard-header::before {
   content: "";
   position: absolute;
