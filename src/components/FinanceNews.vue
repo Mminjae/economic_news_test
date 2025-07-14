@@ -74,14 +74,6 @@ const loadBookmarks = () => {
   }
 };
 
-const loadDarkMode = () => {
-  const saved = localStorage.getItem("darkMode");
-  if (saved !== null) {
-    isDarkMode.value = JSON.parse(saved);
-    document.documentElement.classList.toggle("dark", isDarkMode.value);
-  }
-};
-
 // Lifecycle
 onMounted(() => {
   loadBookmarks();
