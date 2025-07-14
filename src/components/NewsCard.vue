@@ -60,7 +60,7 @@ const onBookmarkClick = (event) => {
           @click="onBookmarkClick"
           class="bookmark-btn"
           :class="{ bookmarked: isBookmarked }"
-          :title="isBookmarked ? 'Remove from bookmarks' : 'Add to bookmarks'"
+          :title="isBookmarked ? '북마크에서 제거' : '북마크에 추가'"
         >
           {{ isBookmarked ? "⭐" : "☆" }}
         </button>
