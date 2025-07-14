@@ -313,7 +313,7 @@ onUnmounted(() => {
 
 /* Article Content */
 .article-content {
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
 .article-title {
