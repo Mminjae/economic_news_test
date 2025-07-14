@@ -81,7 +81,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="finance-news" :class="{ 'dark-mode': isDarkMode }">
+  <div class="finance-news">
     <!-- Header -->
     <header class="news-header">
       <div class="header-content">
