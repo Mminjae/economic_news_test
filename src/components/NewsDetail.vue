@@ -28,12 +28,12 @@ const formattedDate = computed(() => {
 
 const categoryColor = computed(() => {
   const colors = {
-    "Monetary Policy": "#3b82f6",
-    "Stock Market": "#10b981",
-    Cryptocurrency: "#f59e0b",
-    Banking: "#8b5cf6",
-    Commodities: "#ef4444",
-    "International Markets": "#06b6d4",
+    통화정책: "#3b82f6",
+    주식시장: "#10b981",
+    암호화폐: "#f59e0b",
+    은행업: "#8b5cf6",
+    원자재: "#ef4444",
+    해외시장: "#06b6d4",
   };
   return colors[props.news.category] || "#6b7280";
 });
