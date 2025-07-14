@@ -4,6 +4,7 @@ import FinanceNews from "./components/FinanceNews.vue";
 import FinancialCharts from "./components/FinancialCharts.vue";
 import EconomicTerms from "./components/EconomicTerms.vue";
 import EconomicQuiz from "./components/EconomicQuiz.vue";
+import UserProfile from "./components/UserProfile.vue";
 
 // Tab management
 const activeTab = ref("news");
@@ -75,7 +76,7 @@ onMounted(() => {
             class="dark-mode-toggle"
             :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
           >
-            {{ isDarkMode ? "☀️" : "🌙" }}
+            {{ isDarkMode ? "☀��" : "🌙" }}
           </button>
         </div>
       </div>
