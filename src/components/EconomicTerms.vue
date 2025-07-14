@@ -8,7 +8,7 @@ const allTerms = ref([
     term: "GDP",
     fullName: "Gross Domestic Product (국내총생산)",
     definition:
-      "한 나라의 영토 내에서 일정 기간 동안 생���된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
+      "한 나라의 영토 내에서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
     example: "2023년 한국의 GDP는 약 2,080조원으로 세계 10위를 기록했습니다.",
     category: "거시경제",
     bookmark: false,
@@ -69,7 +69,7 @@ const allTerms = ref([
     term: "환율",
     fullName: "Exchange Rate",
     definition: "한 나라의 화폐와 다른 나라 화폐 사이의 교환비율을 의미합니다.",
-    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습니다.",
+    example: "달러 강세로 ���/달러 환율이 1,350원대까지 상승했습니다.",
     category: "외환",
     bookmark: false,
   },
@@ -597,7 +597,7 @@ watch(searchQuery, () => {
   color: #64748b;
 }
 
-.dark-mode .empty-state {
+:root.dark .empty-state {
   color: #94a3b8;
 }
 
@@ -613,7 +613,7 @@ watch(searchQuery, () => {
   color: #374151;
 }
 
-.dark-mode .empty-title {
+:root.dark .empty-title {
   color: #d1d5db;
 }
 
