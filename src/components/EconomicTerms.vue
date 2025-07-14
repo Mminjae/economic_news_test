@@ -39,7 +39,7 @@ const allTerms = ref([
     fullName: "Consumer Price Index (소비자물가지수)",
     definition:
       "일반 소비자가 생활하는 데 필요한 상품과 서비스 가격의 평균적인 변동을 나타내는 지수입니다.",
-    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상승했습니다.",
+    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상승했습��다.",
     category: "물가",
     bookmark: true,
   },
@@ -79,7 +79,7 @@ const allTerms = ref([
     fullName: "National Debt",
     definition:
       "중앙정부와 지방정부가 발행한 채권 등을 통해 부담하게 된 부채의 총액입니다.",
-    example: "한���의 국가부채는 GDP 대비 50% 수준을 유지하고 있습니다.",
+    example: "한국의 국가부채는 GDP 대비 50% 수준을 유지하고 있습니다.",
     category: "재정",
     bookmark: false,
   },
@@ -540,10 +540,10 @@ watch(searchQuery, () => {
   white-space: nowrap;
 }
 
-.dark-mode .bookmarks-toggle {
-  background: #334155;
-  border-color: #475569;
-  color: #e2e8f0;
+:root.dark .bookmarks-toggle {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .bookmarks-toggle:hover {
