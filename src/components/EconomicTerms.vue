@@ -8,7 +8,7 @@ const allTerms = ref([
     term: "GDP",
     fullName: "Gross Domestic Product (국내총생산)",
     definition:
-      "한 나라의 영토 내에서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
+      "한 나라의 영토 내에서 일정 기간 동안 생���된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
     example: "2023년 한국의 GDP는 약 2,080조원으로 세계 10위를 기록했습니다.",
     category: "거시경제",
     bookmark: false,
@@ -39,7 +39,7 @@ const allTerms = ref([
     fullName: "Consumer Price Index (소비자물가지수)",
     definition:
       "일반 소비자가 생활하는 데 필요한 상품과 서비스 가격의 평균적인 변동을 나타내는 지수입니다.",
-    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상승했습��다.",
+    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상승했습니다.",
     category: "물가",
     bookmark: true,
   },
@@ -574,7 +574,7 @@ watch(searchQuery, () => {
   flex-wrap: wrap;
 }
 
-.dark-mode .search-info {
+:root.dark .search-info {
   color: #94a3b8;
 }
 
