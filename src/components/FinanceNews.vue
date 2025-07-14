@@ -124,7 +124,7 @@ onMounted(() => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Search news by title, content, source, or category..."
+            placeholder="제목, 내용, 출처, 카테고리로 뉴스 검색..."
             class="search-input"
           />
           <span class="search-icon">🔍</span>
