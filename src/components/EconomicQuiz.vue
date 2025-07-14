@@ -34,7 +34,7 @@ const quizQuestions = {
   easy: [
     {
       id: 1,
-      question: "다음 중 인플레이션을 나타내�� 지표는?",
+      question: "다음 중 인플레이션을 나타내는 지표는?",
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
@@ -74,7 +74,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "양적완화는 중앙은행이 국채 등을 대량 매입하여 시���에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
+        "양적완화는 중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
     },
     {
       id: 5,
@@ -357,10 +357,10 @@ const loadUserProfile = () => {
   }
 };
 
+const emit = defineEmits(["navigate"]);
+
 const showProfile = () => {
-  alert(
-    `${userProfile.value.name}\n레벨: ${userProfile.value.level}\n총 포인트: ${userProfile.value.totalPoints}`,
-  );
+  emit("navigate", "profile");
 };
 
 // Lifecycle
