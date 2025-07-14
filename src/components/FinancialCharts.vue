@@ -875,10 +875,18 @@ onMounted(() => {
   color: #1e293b;
 }
 
+:root.dark .chart-title h3 {
+  color: #f1f5f9;
+}
+
 .current-price {
   font-size: 1.2rem;
   font-weight: 600;
   color: #667eea;
+}
+
+:root.dark .current-price {
+  color: #60a5fa;
 }
 
 .time-filters {
