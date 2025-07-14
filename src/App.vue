@@ -279,6 +279,16 @@ onMounted(() => {
     gap: 1.5rem;
   }
 
+  .nav-center {
+    order: 2;
+    width: 100%;
+  }
+
+  .nav-actions {
+    order: 3;
+    justify-content: center;
+  }
+
   .nav-tabs {
     justify-content: center;
     width: 100%;
