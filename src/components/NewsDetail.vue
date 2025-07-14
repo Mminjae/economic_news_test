@@ -86,7 +86,7 @@ onUnmounted(() => {
             :class="{ bookmarked: isBookmarked }"
             :title="isBookmarked ? '북마크에서 제거' : '북마크에 추가'"
           >
-            {{ isBookmarked ? "⭐" : "☆" }}
+            {{ isBookmarked ? "���" : "☆" }}
           </button>
           <button @click="$emit('close')" class="close-btn" title="닫기">
             ✕
@@ -138,13 +138,13 @@ onUnmounted(() => {
             <div class="share-actions">
               <span class="share-text">이 기사 공유하기:</span>
               <div class="share-buttons">
-                <button class="share-btn twitter" title="Share on Twitter">
+                <button class="share-btn twitter" title="트위터에 공유">
                   🐦
                 </button>
-                <button class="share-btn linkedin" title="Share on LinkedIn">
+                <button class="share-btn linkedin" title="링크드인에 공유">
                   💼
                 </button>
-                <button class="share-btn copy" title="Copy link">📋</button>
+                <button class="share-btn copy" title="링크 복사">📋</button>
               </div>
             </div>
           </footer>
