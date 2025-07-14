@@ -29,6 +29,10 @@ const setActiveTab = (tabId) => {
   activeTab.value = tabId;
 };
 
+const handleNavigation = (tabId) => {
+  setActiveTab(tabId);
+};
+
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle("dark", isDarkMode.value);
