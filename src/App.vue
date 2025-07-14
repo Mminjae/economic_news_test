@@ -22,6 +22,7 @@ const tabs = [
   },
   { id: "terms", label: "경제 용어", icon: "📚", component: "EconomicTerms" },
   { id: "quiz", label: "경제 퀴즈", icon: "🧠", component: "EconomicQuiz" },
+  { id: "profile", label: "프로필", icon: "👤", component: "UserProfile" },
 ];
 
 const setActiveTab = (tabId) => {
@@ -76,7 +77,7 @@ onMounted(() => {
             class="dark-mode-toggle"
             :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
           >
-            {{ isDarkMode ? "☀��" : "🌙" }}
+            {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
         </div>
       </div>
