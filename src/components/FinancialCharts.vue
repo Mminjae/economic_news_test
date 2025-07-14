@@ -779,10 +779,18 @@ onMounted(() => {
   color: #1e293b;
 }
 
+:root.dark .asset-name {
+  color: #f1f5f9;
+}
+
 .asset-symbol {
   color: #64748b;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+:root.dark .asset-symbol {
+  color: #94a3b8;
 }
 
 .favorite-btn {
