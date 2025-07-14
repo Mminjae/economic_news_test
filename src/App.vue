@@ -222,8 +222,8 @@ onMounted(() => {
 
 .nav-tab:hover {
   color: var(--text-primary);
-  border-color: rgba(102, 126, 234, 0.2);
-  background: rgba(102, 126, 234, 0.05);
+  border-color: rgba(251, 191, 36, 0.2);
+  background: rgba(251, 191, 36, 0.05);
   transform: translateY(-2px);
 }
 
