@@ -92,6 +92,18 @@ const onBookmarkClick = (event) => {
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  border-radius: 16px 16px 0 0;
 }
 
 :root.dark .news-card {
