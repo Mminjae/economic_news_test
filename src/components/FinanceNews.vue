@@ -248,8 +248,8 @@ onMounted(() => {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
 }
 
-.dark-mode .news-header {
-  background: rgba(26, 26, 46, 0.95);
+:root.dark .news-header {
+  background: rgba(15, 23, 42, 0.95);
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
