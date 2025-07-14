@@ -102,10 +102,8 @@ onMounted(() => {
     <header class="news-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="news-title">📰 Finance News</h1>
-          <p class="news-subtitle">
-            Stay updated with the latest financial news
-          </p>
+          <div class="news-title">📰 금융 뉴스</div>
+          <p class="news-subtitle">최신 금융 뉴스와 시장 동향을 확인하세요</p>
         </div>
         <div class="header-actions">
           <button
