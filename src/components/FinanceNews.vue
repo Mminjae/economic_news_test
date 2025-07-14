@@ -188,7 +188,7 @@ onMounted(() => {
 <style scoped>
 .finance-news {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   transition: all 0.3s ease;
   position: relative;
 }
