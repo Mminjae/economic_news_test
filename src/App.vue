@@ -263,12 +263,12 @@ onMounted(() => {
 
 :root.dark .nav-tab:hover {
   color: var(--text-primary);
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(251, 191, 36, 0.1);
 }
 
 :root.dark .nav-tab.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  color: #451a03;
 }
 
 /* Responsive Design for Navigation */
