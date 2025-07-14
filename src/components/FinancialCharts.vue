@@ -666,6 +666,13 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+  color: #374151;
+}
+
+:root.dark .filter-tab {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .filter-tab:hover {
