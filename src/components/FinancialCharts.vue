@@ -6,7 +6,7 @@ const mockAssetData = {
   crypto: [
     {
       id: 1,
-      name: "비��코인",
+      name: "비트코인",
       symbol: "BTC",
       price: 56000000,
       change: 2.45,
@@ -286,7 +286,7 @@ onMounted(() => {
     <header class="dashboard-header">
       <div class="header-content">
         <div class="header-title">
-          <h1>📊 금융 자산 ���각화</h1>
+          <h1>📊 금융 자산 시각화</h1>
           <p class="header-subtitle">실시간 시장 데이터 및 차트 분석</p>
         </div>
         <div class="header-actions">
@@ -852,6 +852,11 @@ onMounted(() => {
   padding: 2rem;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+:root.dark .chart-section {
+  background: #1e293b;
+  border-color: #334155;
 }
 
 .chart-header {
