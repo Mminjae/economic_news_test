@@ -39,7 +39,7 @@ const allTerms = ref([
     fullName: "Consumer Price Index (소비자물가지수)",
     definition:
       "일반 소비자가 생활하는 데 필요한 상품과 서비스 가격의 평균적인 변동을 나타내는 지수입니다.",
-    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상승했습니다.",
+    example: "2024년 1월 CPI는 전년 동월 대비 2.8% 상��했습니다.",
     category: "물가",
     bookmark: true,
   },
@@ -199,7 +199,6 @@ const handleEscapeKey = (event) => {
 // Lifecycle
 onMounted(() => {
   loadBookmarks();
-  loadDarkMode();
   document.addEventListener("keydown", handleEscapeKey);
 });
 
@@ -220,7 +219,7 @@ watch(searchQuery, () => {
         <div class="header-left">
           <h1 class="page-title">📚 경제용어 사전</h1>
           <p class="page-subtitle">
-            경제와 금융 ��야의 핵심 용어들을 쉽게 찾아보세요
+            경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
           </p>
         </div>
       </div>
