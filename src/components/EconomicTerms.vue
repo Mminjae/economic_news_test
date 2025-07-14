@@ -8,7 +8,7 @@ const allTerms = ref([
     term: "GDP",
     fullName: "Gross Domestic Product (국내총생산)",
     definition:
-      "한 나라의 영토 내에서 일정 기간 동안 생산된 모든 최종 재화와 ��비스의 시장가치 총합입니다.",
+      "한 나라의 영토 내에서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장가치 총합입니다.",
     example: "2023년 한국의 GDP는 약 2,080조원으로 세계 10위를 기록했습니다.",
     category: "거시경제",
     bookmark: false,
@@ -172,12 +172,6 @@ const clearSearch = () => {
   searchQuery.value = "";
 };
 
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle("dark", isDarkMode.value);
-  localStorage.setItem("termsPageDarkMode", isDarkMode.value);
-};
-
 const saveBookmarks = () => {
   const bookmarkedIds = allTerms.value
     .filter((term) => term.bookmark)
@@ -232,7 +226,7 @@ watch(searchQuery, () => {
     <header class="terms-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="page-title">📚 경제용어 사전</h1>
+          <h1 class="page-title">📚 경제��어 사전</h1>
           <p class="page-subtitle">
             경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
           </p>
