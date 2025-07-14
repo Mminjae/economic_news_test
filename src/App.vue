@@ -1,9 +1,61 @@
 <script setup>
+import { ref } from "vue";
 import FinanceNews from "./components/FinanceNews.vue";
+import FinancialCharts from "./components/FinancialCharts.vue";
+import EconomicTerms from "./components/EconomicTerms.vue";
+import EconomicQuiz from "./components/EconomicQuiz.vue";
+
+// Tab management
+const activeTab = ref("news");
+
+const tabs = [
+  { id: "news", label: "경제 뉴스", icon: "📰", component: "FinanceNews" },
+  {
+    id: "charts",
+    label: "금융 차트",
+    icon: "📈",
+    component: "FinancialCharts",
+  },
+  { id: "terms", label: "경제 용어", icon: "📚", component: "EconomicTerms" },
+  { id: "quiz", label: "경제 퀴즈", icon: "🧠", component: "EconomicQuiz" },
+];
+
+const setActiveTab = (tabId) => {
+  activeTab.value = tabId;
+};
 </script>
 
 <template>
-  <FinanceNews />
+  <div class="app">
+    <!-- Tab Navigation -->
+    <nav class="tab-navigation">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h1 class="brand-title">💼 경제 포털</h1>
+        </div>
+        <div class="nav-tabs">
+          <button
+            v-for="tab in tabs"
+            :key="tab.id"
+            @click="setActiveTab(tab.id)"
+            class="nav-tab"
+            :class="{ active: activeTab === tab.id }"
+          >
+            <span class="tab-icon">{{ tab.icon }}</span>
+            <span class="tab-label">{{ tab.label }}</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tab Content -->
+    <main class="tab-content">
+      <FinanceNews v-if="activeTab === 'news'" />
+      <FinancialCharts v-else-if="activeTab === 'charts'" />
+      <EconomicTerms v-else-if="activeTab === 'terms'" />
+      <EconomicQuiz v-else-if="activeTab === 'quiz'" />
+    </main>
+  </div>
 </template>
 
 <style>
