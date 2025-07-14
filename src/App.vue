@@ -59,7 +59,7 @@ onMounted(() => {
     <nav class="tab-navigation">
       <div class="nav-container">
         <div class="nav-brand">
-          <h1 class="brand-title">💼 경제 포털</h1>
+          <h1 class="brand-title">💼 ���제 포털</h1>
         </div>
         <div class="nav-center">
           <div class="nav-tabs">
@@ -318,13 +318,23 @@ onMounted(() => {
 @media (max-width: 640px) {
   .nav-tabs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
     width: 100%;
   }
 
   .nav-tab {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tab-icon {
+    font-size: 1.2rem;
+  }
+
+  .tab-label {
+    font-size: 0.75rem;
   }
 }
 
@@ -338,12 +348,14 @@ onMounted(() => {
   }
 
   .nav-tabs {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
   }
 
   .nav-tab {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   .tab-icon {
@@ -351,7 +363,7 @@ onMounted(() => {
   }
 
   .tab-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
