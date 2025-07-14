@@ -106,10 +106,10 @@ onUnmounted(() => {
           <h1 class="article-title">{{ news.title }}</h1>
 
           <div class="article-meta">
-            <span class="author">By {{ news.author }}</span>
+            <span class="author">작성자: {{ news.author }}</span>
             <span class="reading-time"
-              >📖 ~{{ Math.ceil(news.content.split(" ").length / 200) }} min
-              read</span
+              >📖 ~{{ Math.ceil(news.content.split(" ").length / 200) }}분
+              소요</span
             >
           </div>
 
