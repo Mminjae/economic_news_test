@@ -189,14 +189,6 @@ const loadBookmarks = () => {
   }
 };
 
-const loadDarkMode = () => {
-  const saved = localStorage.getItem("termsPageDarkMode");
-  if (saved !== null) {
-    isDarkMode.value = JSON.parse(saved);
-    document.documentElement.classList.toggle("dark", isDarkMode.value);
-  }
-};
-
 // Handle escape key for modal
 const handleEscapeKey = (event) => {
   if (event.key === "Escape" && showDetailModal.value) {
@@ -226,9 +218,9 @@ watch(searchQuery, () => {
     <header class="terms-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="page-title">📚 경제��어 사전</h1>
+          <h1 class="page-title">📚 경제용어 사전</h1>
           <p class="page-subtitle">
-            경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
+            경제와 금융 ��야의 핵심 용어들을 쉽게 찾아보세요
           </p>
         </div>
       </div>
