@@ -984,6 +984,10 @@ onMounted(() => {
   font-weight: 500;
 }
 
+:root.dark .x-label {
+  color: #94a3b8;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .dashboard-main {
