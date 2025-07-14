@@ -136,7 +136,7 @@ onMounted(() => {
             class="bookmark-filter"
             :class="{ active: showBookmarksOnly }"
           >
-            ⭐ Bookmarks
+            ⭐ 북마크
             <span v-if="bookmarkedCount > 0" class="bookmark-count">{{
               bookmarkedCount
             }}</span>
