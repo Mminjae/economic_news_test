@@ -134,10 +134,44 @@ onMounted(() => {
   letter-spacing: -0.025em;
 }
 
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .nav-tabs {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.nav-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dark-mode-toggle {
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .nav-tab {
