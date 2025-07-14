@@ -322,58 +322,6 @@ onMounted(() => {
 
     <!-- Main Dashboard -->
     <main class="dashboard-main">
-      <!-- Real-time Prices Section -->
-      <section class="prices-section">
-        <h3 class="section-title">실시간 자산 가격</h3>
-        <div class="assets-grid">
-          <div
-            v-for="asset in currentAssets"
-            :key="asset.id"
-            @click="selectAsset(asset)"
-            class="asset-card"
-            :class="{
-              active: selectedAsset.id === asset.id,
-              positive: asset.change >= 0,
-              negative: asset.change < 0,
-            }"
-          >
-            <div class="asset-header">
-              <div class="asset-info">
-                <h4 class="asset-name">{{ asset.name }}</h4>
-                <span class="asset-symbol">{{ asset.symbol }}</span>
-              </div>
-              <button
-                @click.stop="toggleFavorite(asset.id)"
-                class="favorite-btn"
-                :class="{ favorited: asset.favorite }"
-              >
-                {{ asset.favorite ? "⭐" : "☆" }}
-              </button>
-            </div>
-            <div class="asset-price">
-              <span class="price">{{
-                formatPrice(asset.price, selectedAssetType)
-              }}</span>
-              <span
-                class="change"
-                :class="{
-                  positive: asset.change >= 0,
-                  negative: asset.change < 0,
-                }"
-              >
-                {{
-                  formatChange(
-                    asset.change,
-                    asset.changeAmount,
-                    selectedAssetType,
-                  )
-                }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Chart Section -->
       <section class="chart-section">
         <div class="chart-header">
