@@ -96,11 +96,6 @@ onUnmounted(() => {
 
       <!-- Modal Content -->
       <div class="modal-content">
-        <!-- Hero Image -->
-        <div class="hero-image-container">
-          <img :src="news.imageUrl" :alt="news.title" class="hero-image" />
-        </div>
-
         <!-- Article Content -->
         <article class="article-content">
           <h1 class="article-title">{{ news.title }}</h1>
@@ -316,17 +311,6 @@ onUnmounted(() => {
   overflow-y: auto;
 }
 
-.hero-image-container {
-  height: 300px;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* Article Content */
 .article-content {
   padding: 2rem;
@@ -527,10 +511,6 @@ onUnmounted(() => {
 
   .article-title {
     font-size: 1.5rem;
-  }
-
-  .hero-image-container {
-    height: 200px;
   }
 
   .article-meta {
