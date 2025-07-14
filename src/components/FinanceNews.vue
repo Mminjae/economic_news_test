@@ -336,10 +336,10 @@ onMounted(() => {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.dark-mode .search-input {
-  background: #374151;
-  border-color: #4b5563;
-  color: #e0e6ed;
+:root.dark .search-input {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
 
 .search-input:focus {
