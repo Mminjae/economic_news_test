@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1 class="page-title">📊 분석</h1>
       <p class="page-description">
-        당신의 소비 패턴과 금융 현황을 분석하고 현명한 지출을 도와드립니다
+        당신의 소비 패턴과 금융 현황을 분석하고 현명한 지출을 도와드립��다
       </p>
     </div>
 
@@ -38,7 +38,7 @@
           <div class="card-icon">🎯</div>
           <h3 class="card-title">목표 달성</h3>
           <p class="card-description">
-            저축 목표를 설정하고 달성 상황을 모니터링합니다.
+            저축 목표를 설정하고 ��성 상황을 모니터링합니다.
           </p>
           <button class="card-btn">목표 설정</button>
         </div>
@@ -125,6 +125,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .feature-cards {
