@@ -229,7 +229,11 @@ onMounted(() => {
 
 /* Header */
 .app-header {
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
   border-bottom: 2px solid var(--border-color);
   position: sticky;
   top: 0;
@@ -240,7 +244,7 @@ onMounted(() => {
 }
 
 .app-header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -333,7 +337,11 @@ onMounted(() => {
 }
 
 .dark-mode-toggle {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    var(--bg-primary) 100%
+  );
   border: 2px solid var(--border-color);
   border-radius: 50%;
   width: 48px;
@@ -351,13 +359,18 @@ onMounted(() => {
 }
 
 .dark-mode-toggle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -476,11 +489,16 @@ onMounted(() => {
 .mini-tab::before {
   content: "";
   position: absolute;
-    top: 0;
+  top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.1),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -541,6 +559,9 @@ onMounted(() => {
 }
 
 /* Dark mode support */
+:root.dark {
+}
+
 :root.dark .app-header {
   background: var(--bg-secondary);
   border-bottom-color: var(--border-color);
@@ -635,7 +656,7 @@ onMounted(() => {
     text-align: center;
   }
 
-    .welcome-text {
+  .welcome-text {
     font-size: 0.8rem;
   }
 
@@ -692,7 +713,7 @@ onMounted(() => {
     font-size: 1.1rem;
   }
 
-    .tab-text {
+  .tab-text {
     font-size: 0.85rem;
   }
 }
@@ -720,7 +741,6 @@ onMounted(() => {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
   }
-}
 
   .content-header {
     padding: 1.5rem 0.75rem;
