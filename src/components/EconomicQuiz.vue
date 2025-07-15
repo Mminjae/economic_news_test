@@ -78,7 +78,7 @@ const quizQuestions = {
     },
     {
       id: 5,
-      question: "필립스 곡선이 나타내는 관계는?",
+      question: "필립스 곡선이 나타내��� 관계는?",
       options: [
         "GDP와 인플레이션",
         "실업률과 인플레이션",
@@ -376,6 +376,10 @@ onMounted(() => {
     <section class="dashboard">
       <div class="dashboard-header">
         <h2 class="dashboard-title">📊 오늘의 퀴즈 현황</h2>
+        <button @click="showProfile = !showProfile" class="profile-toggle-btn">
+          <span class="profile-icon">👤</span>
+          <span class="profile-text">프로필</span>
+        </button>
       </div>
 
       <div class="stats-grid">
