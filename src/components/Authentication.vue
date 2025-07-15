@@ -82,7 +82,7 @@
 
         <div class="auth-footer">
           <p class="switch-text">
-            {{ isSignup ? "이미 계정이 있으신가요?" : "계정이 없으신가요?" }}
+            {{ isSignup ? "이미 계정이 있으신가요?" : "계정이 없으���가요?" }}
             <button @click="toggleMode" class="switch-btn">
               {{ isSignup ? "로그인" : "회원가입" }}
             </button>
@@ -91,7 +91,7 @@
       </div>
 
       <div class="auth-features">
-        <h3 class="features-title">경제 포털에서 제공하는 서비스</h3>
+        <h3 class="features-title">뱅크랩에서 제공하는 서비스</h3>
         <div class="feature-list">
           <div class="feature-item">
             <span class="feature-icon">💰</span>
