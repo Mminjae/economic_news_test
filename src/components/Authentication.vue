@@ -82,7 +82,7 @@
 
         <div class="auth-footer">
           <p class="switch-text">
-            {{ isSignup ? "이미 계정이 있으신가요?" : "계정이 없으���가요?" }}
+            {{ isSignup ? "이미 계정이 있으신가요?" : "계정이 없으신가요?" }}
             <button @click="toggleMode" class="switch-btn">
               {{ isSignup ? "로그인" : "회원가입" }}
             </button>
