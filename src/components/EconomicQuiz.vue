@@ -107,7 +107,7 @@ const quizQuestions = {
   hard: [
     {
       id: 7,
-      question: "테일러 준칙에서 중앙은행이 고려하는 주요 변수는?",
+      question: "테일러 준칙에�� 중앙은행이 고려하는 주요 변수는?",
       options: [
         "GDP와 환율",
         "인플레이션과 산출갭",
@@ -147,17 +147,17 @@ const quizQuestions = {
   ],
 };
 
-// Reactive state
-const selectedDifficulty = ref(null);
-const currentQuestionIndex = ref(0);
-const selectedAnswer = ref(null);
-const userAnswers = ref([]);
-const showResult = ref(false);
-const isSubmitted = ref(false);
-const gameStarted = ref(false);
-const showProfile = ref(false);
+// 퀴즈 게임 상태 관리
+const selectedDifficulty = ref(null); // 선택된 난이도 (easy/medium/hard)
+const currentQuestionIndex = ref(0); // 현재 문제 인덱스
+const selectedAnswer = ref(null); // 선택된 답안 인덱스
+const userAnswers = ref([]); // 사용자 답안 기록 배열
+const showResult = ref(false); // 결과 화면 표시 여부
+const isSubmitted = ref(false); // 답안 제출 여부
+const gameStarted = ref(false); // 게임 시작 여부
+const showProfile = ref(false); // 프로필 표시 여부
 
-// Daily stats (stored in localStorage)
+// 일일 통계 데이터 (로컬스토리지에 저장)
 const dailyStats = ref({
   date: new Date().toDateString(),
   easy: { attempted: 0, correct: 0, points: 0 },
@@ -168,7 +168,7 @@ const dailyStats = ref({
   totalAttempted: 0,
 });
 
-// User profile data
+// 사용자 프로필 데이터
 const userProfile = ref({
   name: "경제 학습자",
   level: 1,
@@ -177,17 +177,20 @@ const userProfile = ref({
   streak: 0,
 });
 
-// Computed properties
+// 계산된 속성들 (Computed Properties)
+// 선택된 난이도에 따른 문제 목록
 const currentQuestions = computed(() => {
   return selectedDifficulty.value
     ? quizQuestions[selectedDifficulty.value.id]
     : [];
 });
 
+// 현재 표시될 문제
 const currentQuestion = computed(() => {
   return currentQuestions.value[currentQuestionIndex.value];
 });
 
+// 퀴즈 진행률 계산 (백분율)
 const progressPercentage = computed(() => {
   return (
     ((currentQuestionIndex.value + 1) / currentQuestions.value.length) * 100
