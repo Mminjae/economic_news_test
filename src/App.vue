@@ -12,6 +12,7 @@ import Authentication from "./components/Authentication.vue";
 
 // Tab management
 const activeTab = ref("asset-analysis");
+const activeSubTab = ref("news");
 
 // Authentication management
 const isAuthenticated = ref(false);
