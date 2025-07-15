@@ -42,15 +42,21 @@ const emit = defineEmits(["tab-click", "auth-required"]);
 
 const tabs = [
   {
-    id: "asset-analysis",
-    label: "자산분석",
+    id: "assets",
+    label: "자산",
     icon: "💰",
     requiresAuth: false,
   },
   {
-    id: "spending-analysis",
-    label: "소비분석",
-    icon: "💳",
+    id: "analysis",
+    label: "분석",
+    icon: "📊",
+    requiresAuth: false,
+  },
+  {
+    id: "home",
+    label: "홈",
+    icon: "🏠",
     requiresAuth: false,
   },
   {
