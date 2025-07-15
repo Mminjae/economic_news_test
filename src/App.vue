@@ -54,36 +54,42 @@ const handleLogout = () => {
   }
 };
 
+// 인증이 필요한 탭 접근 시 처리
 const handleAuthRequired = (tabId) => {
   showAuthPage.value = true;
   activeTab.value = "my-page";
 };
 
+// 인증 페이지 표시 요청 처리
 const handleShowAuth = () => {
   showAuthPage.value = true;
   activeTab.value = "my-page";
 };
 
-// Tab navigation
+// 탭 네비게이션 관리
+// 메인 탭 클릭 처리 (하단 네비게이션에서 호출)
 const handleTabClick = (tabId) => {
   activeTab.value = tabId;
-  // Reset to news when switching to economic content
+  // 경제 컨텐츠로 전환 시 뉴스 탭으로 초기화
   if (tabId === "economic-content") {
     activeSubTab.value = "news";
   }
 };
 
+// 내부 컴포넌트에서의 네비게이션 ��청 처리
 const handleNavigation = (tabId) => {
   activeTab.value = tabId;
 };
 
-// Dark mode functions
+// 다크모드 관리 함수들
+// 다크모드 토글 및 로컬스토리지에 저장
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle("dark", isDarkMode.value);
   localStorage.setItem("globalDarkMode", isDarkMode.value);
 };
 
+// 앱 시작 시 로컬스토리지에서 다크모드 설정 불러오기
 const loadDarkMode = () => {
   const saved = localStorage.getItem("globalDarkMode");
   if (saved !== null) {
@@ -92,10 +98,10 @@ const loadDarkMode = () => {
   }
 };
 
-// Lifecycle
+// 컴포넌트 라이프사이클 - 앱 시작 시 초기화 작업
 onMounted(() => {
-  loadDarkMode();
-  checkAuthStatus();
+  loadDarkMode(); // 다크모드 설정 로드
+  checkAuthStatus(); // 로그인 상태 확인
 });
 </script>
 
