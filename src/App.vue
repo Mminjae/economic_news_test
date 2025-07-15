@@ -642,8 +642,9 @@ onMounted(() => {
 @media (max-width: 768px) {
   .header-container {
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    justify-content: space-between;
   }
 
   .app-title {
@@ -651,9 +652,9 @@ onMounted(() => {
   }
 
   .user-info {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
-    text-align: center;
+    text-align: right;
   }
 
   .welcome-text {
@@ -725,6 +726,8 @@ onMounted(() => {
 
   .header-container {
     padding: 1rem 0.75rem;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .header-actions {
