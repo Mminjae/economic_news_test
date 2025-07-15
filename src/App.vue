@@ -58,6 +58,10 @@ const closeAuthModal = () => {
 // Tab navigation
 const handleTabClick = (tabId) => {
   activeTab.value = tabId;
+  // Reset to news when switching to economic content
+  if (tabId === "economic-content") {
+    activeSubTab.value = "news";
+  }
 };
 
 const handleNavigation = (tabId) => {
