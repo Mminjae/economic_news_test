@@ -360,7 +360,7 @@ const loadUserProfile = () => {
 
 const emit = defineEmits(["navigate"]);
 
-const showProfile = () => {
+const navigateToProfile = () => {
   emit("navigate", "profile");
 };
 
@@ -448,7 +448,7 @@ onMounted(() => {
           </div>
 
           <div class="difficulty-breakdown">
-            <h4 class="breakdown-title">난이도별 성과</h4>
+            <h4 class="breakdown-title">난이도�� 성과</h4>
             <div class="breakdown-grid">
               <div
                 v-for="difficulty in difficultyLevels"
@@ -483,7 +483,7 @@ onMounted(() => {
             <h4 class="summary-title">오늘의 요약</h4>
             <div class="summary-content">
               <div class="summary-item">
-                <span class="summary-label">총 시도</span>
+                <span class="summary-label">총 ��도</span>
                 <span class="summary-value"
                   >{{ dailyStats.totalAttempted }}문제</span
                 >
@@ -703,7 +703,7 @@ onMounted(() => {
                   )
                 }}%
               </div>
-              <div class="result-label">정답률</div>
+              <div class="result-label">��답률</div>
             </div>
           </div>
         </div>
