@@ -100,7 +100,7 @@ onMounted(() => {
     <!-- Header with app title and dark mode toggle -->
     <header class="app-header">
       <div class="header-container">
-        <h1 class="app-title">💼 경제 포털</h1>
+        <h1 class="app-title">🏦 ��크랩</h1>
         <div class="header-actions">
           <div v-if="isAuthenticated" class="user-info">
             <span class="welcome-text"
