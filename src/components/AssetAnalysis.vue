@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1 class="page-title">💰 자산분석</h1>
       <p class="page-description">
-        당신의 자산을 체계적으로 분석하고 관리하세요
+        당신의 자산을 체계적으로 분석하고 관리하���요
       </p>
     </div>
 
@@ -93,6 +93,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .feature-cards {
