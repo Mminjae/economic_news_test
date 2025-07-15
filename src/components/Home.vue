@@ -59,7 +59,7 @@
             <span class="guest-icon">🔐</span>
           </div>
           <div class="guest-info">
-            <h4 class="guest-title">로그인��� 필요합니다</h4>
+            <h4 class="guest-title">로그인이 필요합니다</h4>
             <p class="guest-description">
               개인화된 서비스를 이용하려면 로그인하세요
             </p>
@@ -174,7 +174,7 @@
             <div class="prompt-content">
               <h4 class="prompt-title">투자 성향을 알아보세요</h4>
               <p class="prompt-description">
-                ��단한 질문으로 당신의 투자 성향을 파악하고<br />
+                간단한 질문으로 당신의 투자 성향을 파악하고<br />
                 맞춤형 투자 조언을 받아보세요
               </p>
               <div class="test-features">
@@ -279,7 +279,7 @@ const totalAssets = computed(() => {
 const personalityTest = ref({
   completed: false,
   result: {
-    type: "안정형 투자자",
+    type: "���정형 투자자",
     description: "위험을 최소화하고 안정적인 수익을 추구합니다",
     icon: "🛡️",
     riskLevel: 35,
@@ -386,10 +386,11 @@ const openCalculator = () => {
 }
 
 .user-name {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }
 
 .guest-text {
