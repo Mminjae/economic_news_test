@@ -494,10 +494,10 @@ onMounted(() => {
 }
 
 .mini-tab.active {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: white;
   border-color: transparent;
-  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
   transform: translateY(-2px);
 }
 
