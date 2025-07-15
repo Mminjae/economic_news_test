@@ -141,16 +141,24 @@ const handleTabClick = (tab) => {
 }
 
 .nav-tab:not(.disabled):hover {
-  background: rgba(251, 191, 36, 0.1);
-  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .nav-tab.active {
   background: linear-gradient(
     135deg,
-    rgba(251, 191, 36, 0.15) 0%,
-    rgba(245, 158, 11, 0.15) 100%
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(37, 99, 235, 0.15) 100%
   );
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
 }
 
 .tab-content {
