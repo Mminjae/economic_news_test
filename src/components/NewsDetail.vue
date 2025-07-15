@@ -86,7 +86,7 @@ onUnmounted(() => {
             :class="{ bookmarked: isBookmarked }"
             :title="isBookmarked ? '북마크에서 제거' : '북마크에 추가'"
           >
-            {{ isBookmarked ? "���" : "☆" }}
+            {{ isBookmarked ? "★" : "☆" }}
           </button>
           <button @click="$emit('close')" class="close-btn" title="닫기">
             ✕
