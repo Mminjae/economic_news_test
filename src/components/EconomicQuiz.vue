@@ -217,12 +217,14 @@ const currentDifficultyStats = computed(() => {
   return dailyStats.value[selectedDifficulty.value.id];
 });
 
-// Methods
+// 퀴즈 게임 주요 함수들
+// 난이도 선택 및 퀴즈 초기화
 const selectDifficulty = (difficulty) => {
   selectedDifficulty.value = difficulty;
   resetQuiz();
 };
 
+// 퀴즈 시작 - 모든 상태 초기화
 const startQuiz = () => {
   if (!selectedDifficulty.value) return;
   gameStarted.value = true;
@@ -233,16 +235,19 @@ const startQuiz = () => {
   isSubmitted.value = false;
 };
 
+// 답안 선택 처리
 const selectAnswer = (optionIndex) => {
   if (isSubmitted.value) return;
   selectedAnswer.value = optionIndex;
 };
 
+// 답안 제출 및 결과 처리
 const submitAnswer = () => {
   if (selectedAnswer.value === null || isSubmitted.value) return;
 
   const isCorrect = selectedAnswer.value === currentQuestion.value.correct;
 
+  // 사용자 답안 기록 저장
   userAnswers.value.push({
     questionId: currentQuestion.value.id,
     selectedAnswer: selectedAnswer.value,
@@ -250,24 +255,25 @@ const submitAnswer = () => {
     explanation: currentQuestion.value.explanation,
   });
 
-  // Update daily stats
+  // 일일 통계 업데이트
   updateDailyStats(isCorrect);
 
   isSubmitted.value = true;
 
-  // Auto advance after 2 seconds
+  // 2초 후 자동으로 다음 문제로 이동
   setTimeout(() => {
     nextQuestion();
   }, 2000);
 };
 
+// 다음 문제로 이동 또는 퀴즈 종료
 const nextQuestion = () => {
   if (currentQuestionIndex.value < currentQuestions.value.length - 1) {
     currentQuestionIndex.value++;
     selectedAnswer.value = null;
     isSubmitted.value = false;
   } else {
-    finishQuiz();
+    finishQuiz(); // 마지막 문제인 경우 퀴즈 종료
   }
 };
 
