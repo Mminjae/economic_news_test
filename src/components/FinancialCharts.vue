@@ -705,9 +705,9 @@ onMounted(() => {
 
 /* Main Dashboard */
 .dashboard-main {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
   display: grid;
   gap: 2rem;
 }
