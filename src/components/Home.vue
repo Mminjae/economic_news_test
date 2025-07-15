@@ -224,7 +224,7 @@
             </button>
 
             <button @click="$emit('navigate', 'assets')" class="quick-action">
-              <span class="action-icon">💎</span>
+              <span class="action-icon">���</span>
               <span class="action-label">자산 관리</span>
             </button>
 
@@ -279,7 +279,7 @@ const totalAssets = computed(() => {
 const personalityTest = ref({
   completed: false,
   result: {
-    type: "���정형 투자자",
+    type: "안정형 투자자",
     description: "위험을 최소화하고 안정적인 수익을 추구합니다",
     icon: "🛡️",
     riskLevel: 35,
@@ -425,8 +425,11 @@ const openCalculator = () => {
 }
 
 .dashboard-block:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 12px 40px rgba(59, 130, 246, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .block-header {
