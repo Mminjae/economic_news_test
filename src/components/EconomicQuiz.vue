@@ -34,7 +34,7 @@ const quizQuestions = {
   easy: [
     {
       id: 1,
-      question: "다음 중 인플레이션을 나타내는 지표는?",
+      question: "다음 중 인플레이션을 나타내는 지��는?",
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
@@ -69,7 +69,7 @@ const quizQuestions = {
       options: [
         "인플레이션 억제",
         "유동성 공급 확대",
-        "환율 상승",
+        "환��� 상승",
         "국가부채 감소",
       ],
       correct: 1,
@@ -736,22 +736,9 @@ onMounted(() => {
 
 /* Dashboard */
 .dashboard {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-}
-
-@media (min-width: 1200px) {
-  .dashboard {
-    max-width: 1600px;
-    padding: 4rem 3rem;
-  }
-}
-
-@media (min-width: 1600px) {
-  .dashboard {
-    max-width: 1800px;
-  }
+  padding: 3rem;
 }
 
 .dashboard-header {
@@ -1165,14 +1152,7 @@ onMounted(() => {
 .difficulty-selection {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-}
-
-@media (min-width: 1200px) {
-  .difficulty-selection {
-    max-width: 1400px;
-    padding: 4rem 3rem;
-  }
+  padding: 3rem;
 }
 
 .selection-header {
@@ -1815,9 +1795,10 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .dashboard {
-    padding: 2.5rem 2rem;
+    max-width: 768px;
+    padding: 2rem;
   }
 
   .stats-grid {
@@ -1826,7 +1807,8 @@ onMounted(() => {
   }
 
   .difficulty-selection {
-    padding: 2.5rem 2rem;
+    max-width: 768px;
+    padding: 2rem;
   }
 
   .difficulty-grid {
@@ -1844,7 +1826,17 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .dashboard {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .difficulty-selection {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
   .page-title {
     font-size: 2.5rem;
   }
