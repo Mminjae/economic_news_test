@@ -1,21 +1,23 @@
 <script setup>
+// Vue 3 Composition API 및 필요한 컴포넌트 임포트
 import { ref, computed, onMounted } from "vue";
 import { mockNewsData } from "../data/newsData.js";
 import NewsCard from "./NewsCard.vue";
 import NewsDetail from "./NewsDetail.vue";
 
-// Reactive state
-const news = ref(mockNewsData);
-const searchQuery = ref("");
-const selectedNews = ref(null);
-const bookmarks = ref(new Set());
-const showBookmarksOnly = ref(false);
+// 뉴스 페이지 상태 관리
+const news = ref(mockNewsData); // 뉴스 데이터 목록
+const searchQuery = ref(""); // 검색 쿠리
+const selectedNews = ref(null); // 선택된 뉴스 아이템 (상세보기용)
+const bookmarks = ref(new Set()); // 북마크된 뉴스 ID 목록
+const showBookmarksOnly = ref(false); // 북마크만 보기 모드
 
-// Computed properties
+// 계산된 속성들
+// 검색어와 북마크 필터링이 적용된 뉴스 목록
 const filteredNews = computed(() => {
   let filtered = news.value;
 
-  // Filter by search query
+  // 검색��로 필터링 (제목, 요약, 출처, 카테고리에서 검색)
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase();
     filtered = filtered.filter(
@@ -27,7 +29,7 @@ const filteredNews = computed(() => {
     );
   }
 
-  // Filter by bookmarks
+  // 북마크만 보기 모드일 때 필터링
   if (showBookmarksOnly.value) {
     filtered = filtered.filter((item) => bookmarks.value.has(item.id));
   }
@@ -35,20 +37,24 @@ const filteredNews = computed(() => {
   return filtered;
 });
 
+// 북마크된 기사 수 계산
 const bookmarkedCount = computed(() => bookmarks.value.size);
 
-// Methods
+// 뉴스 관리 함수들
+// 뉴스 상세보기 모달 열기
 const openNewsDetail = (newsItem) => {
   selectedNews.value = newsItem;
 };
 
+// 뉴스 상세보기 모달 닫기
 const closeNewsDetail = () => {
   selectedNews.value = null;
 };
 
+// 북마크 토글 (추가/제거)
 const toggleBookmark = (newsId) => {
   if (bookmarks.value.has(newsId)) {
-    bookmarks.value.delete(newsId);
+    bookmarks.value.delete(newsId); // 북마크 제거
   } else {
     bookmarks.value.add(newsId);
   }
