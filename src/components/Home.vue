@@ -986,20 +986,60 @@ const openCalculator = () => {
   }
 
   .welcome-header {
-    padding: 1rem;
+    padding: 1.25rem;
+    border-radius: 16px;
   }
 
   .welcome-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-block {
+    border-radius: 16px;
+  }
+
+  .block-header {
+    padding: 1.25rem;
+  }
+
+  .block-title h3 {
+    font-size: 1.1rem;
+  }
+
+  .action-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 
   .asset-breakdown {
-    gap: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .asset-item {
+    padding: 1rem;
   }
 
   .test-features {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .quick-action {
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .action-icon {
+    font-size: 1.3rem;
+  }
+
+  .action-label {
+    font-size: 0.85rem;
   }
 }
 </style>
