@@ -540,6 +540,13 @@ const handleSubmit = async () => {
 }
 
 /* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .auth-container {
+    max-width: 768px;
+    padding: 2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .auth-container {
     grid-template-columns: 1fr;
