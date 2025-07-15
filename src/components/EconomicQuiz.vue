@@ -59,7 +59,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "GDP는 Gross Domestic Product의 약자로, 국내총생산을 의미합니다.",
+        "GDP는 Gross Domestic Product의 약자로, 국���총생산을 의미합니다.",
     },
   ],
   medium: [
@@ -100,7 +100,7 @@ const quizQuestions = {
       ],
       correct: 2,
       explanation:
-        "ESG는 Environmental(환경), Social(사회), Governance(지배구조)의 약자로, G는 기업의 지배구조를 의미합니다.",
+        "ESG는 Environmental(환경), Social(사회), Governance(지배��조)의 약자로, G는 기업의 지배구조를 의미합니다.",
     },
   ],
   hard: [
@@ -135,7 +135,7 @@ const quizQuestions = {
       question: "CAPM 모델에서 베타(β)가 의미하는 것은?",
       options: [
         "절대수익률",
-        "시장 위험 대비 민감도",
+        "���장 위험 대비 민감도",
         "무위험 수익률",
         "배당수익률",
       ],
@@ -388,7 +388,7 @@ onMounted(() => {
           <div class="stat-icon">💰</div>
           <div class="stat-content">
             <div class="stat-number">{{ totalDailyPoints }}</div>
-            <div class="stat-label">적립 포인트</div>
+            <div class="stat-label">적립 포인��</div>
           </div>
         </div>
 
@@ -405,6 +405,98 @@ onMounted(() => {
           <div class="stat-content">
             <div class="stat-number">{{ overallAccuracy }}%</div>
             <div class="stat-label">정답률</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Section -->
+      <div v-if="showProfile" class="profile-section">
+        <div class="profile-header">
+          <h3 class="profile-title">📈 총 누적 현황</h3>
+          <button @click="showProfile = false" class="close-profile-btn">
+            ✕
+          </button>
+        </div>
+
+        <div class="profile-content">
+          <div class="profile-stats">
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">🏆</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">{{ userProfile.level }}</div>
+                <div class="profile-stat-label">레벨</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">💰</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">
+                  {{ userProfile.totalPoints }}
+                </div>
+                <div class="profile-stat-label">총 포인트</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">🔥</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">{{ userProfile.streak }}</div>
+                <div class="profile-stat-label">연속 도전</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="difficulty-breakdown">
+            <h4 class="breakdown-title">난이도별 성과</h4>
+            <div class="breakdown-grid">
+              <div
+                v-for="difficulty in difficultyLevels"
+                :key="difficulty.id"
+                class="breakdown-item"
+              >
+                <div class="breakdown-header">
+                  <span class="breakdown-icon">{{ difficulty.icon }}</span>
+                  <span class="breakdown-name">{{ difficulty.label }}</span>
+                </div>
+                <div class="breakdown-stats">
+                  <div class="breakdown-stat">
+                    <span class="breakdown-stat-label">오늘</span>
+                    <span class="breakdown-stat-value">
+                      {{ dailyStats[difficulty.id]?.correct || 0 }}/{{
+                        dailyStats[difficulty.id]?.attempted || 0
+                      }}
+                    </span>
+                  </div>
+                  <div class="breakdown-stat">
+                    <span class="breakdown-stat-label">포인트</span>
+                    <span class="breakdown-stat-value">{{
+                      dailyStats[difficulty.id]?.points || 0
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="today-summary">
+            <h4 class="summary-title">오늘의 요약</h4>
+            <div class="summary-content">
+              <div class="summary-item">
+                <span class="summary-label">총 시도</span>
+                <span class="summary-value"
+                  >{{ dailyStats.totalAttempted }}문제</span
+                >
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">정답률</span>
+                <span class="summary-value">{{ overallAccuracy }}%</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">획득 포인트</span>
+                <span class="summary-value">{{ totalDailyPoints }}점</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
