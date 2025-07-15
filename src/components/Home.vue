@@ -6,9 +6,7 @@
         <h1 class="welcome-title">
           <span class="greeting">안녕하세요!</span>
           <span v-if="user" class="user-name">{{ user.name }}님</span>
-          <span v-else class="guest-text"
-            >경제 포털에 오신 것을 환영합니다</span
-          >
+          <span v-else class="guest-text">뱅크랩에 오신 것을 환영합니다</span>
         </h1>
         <p class="welcome-subtitle">
           {{
@@ -63,7 +61,7 @@
           <div class="guest-info">
             <h4 class="guest-title">로그인이 필요합니다</h4>
             <p class="guest-description">
-              ��인화된 서비스를 이용하려면 로그인하세요
+              개인화된 서비스를 이용하려면 로그인하세요
             </p>
           </div>
         </div>
