@@ -59,7 +59,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "GDP는 Gross Domestic Product의 약자로, 국���총생산을 의미합니다.",
+        "GDP는 Gross Domestic Product의 약자로, 국내총생산을 의미합니다.",
     },
   ],
   medium: [
@@ -74,11 +74,11 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "양적완화�� 중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
+        "양적완화는 중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
     },
     {
       id: 5,
-      question: "��립스 곡선이 나타내��� 관계는?",
+      question: "필립스 곡선이 나타내는 관계는?",
       options: [
         "GDP와 인플레이션",
         "실업률과 인플레이션",
@@ -96,17 +96,17 @@ const quizQuestions = {
         "Growth (성장)",
         "Global (글로벌)",
         "Governance (지배구조)",
-        "Green (친��경)",
+        "Green (친환경)",
       ],
       correct: 2,
       explanation:
-        "ESG는 Environmental(환경), Social(사회), Governance(지배��조)의 약자로, G는 기업의 지배구조를 의미합니다.",
+        "ESG는 Environmental(환경), Social(사회), Governance(지배구조)의 약자로, G는 기업의 지배구조를 의미합니다.",
     },
   ],
   hard: [
     {
       id: 7,
-      question: "테일러 준칙에서 중앙은행이 고려하는 주요 변수는?",
+      question: "테일러 준칙에서 중앙은행이 고���하는 주요 변수는?",
       options: [
         "GDP와 환율",
         "인플레이션과 산출갭",
@@ -115,27 +115,27 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)��� 고려하�� 통화정책 준칙입니다.",
+        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)을 고려하는 통화정책 준칙입니다.",
     },
     {
       id: 8,
       question: "리카도의 비교우위론에 따른 무역의 이익은?",
       options: [
         "절대우위가 있는 재화만 수출",
-        "기회비����� 낮은 재화에 특화",
+        "기회비용이 낮은 재화에 특화",
         "모든 재화를 균등하게 생산",
         "자급자족이 최선",
       ],
       correct: 1,
       explanation:
-        "리카��의 비교우위론에 따르면, 각국이 기회비용이 상���적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
+        "리카도의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
     },
     {
       id: 9,
       question: "CAPM 모델에서 베타(β)가 의미하는 것은?",
       options: [
         "절대수익률",
-        "���장 위험 대비 민감도",
+        "시장 위험 대비 민감도",
         "무위험 수익률",
         "배당수익률",
       ],
