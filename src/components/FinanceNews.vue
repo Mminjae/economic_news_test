@@ -484,8 +484,27 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .search-section {
+    max-width: 768px;
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .news-main {
+    max-width: 768px;
+    padding: 0 2rem 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
