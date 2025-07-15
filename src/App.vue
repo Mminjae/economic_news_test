@@ -478,9 +478,9 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+    width: 100%;
   height: 100%;
-    background: linear-gradient(
+  background: linear-gradient(
     90deg,
     transparent,
     rgba(37, 99, 235, 0.1),
