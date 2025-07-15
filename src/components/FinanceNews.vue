@@ -148,14 +148,14 @@ onMounted(() => {
         <h3 class="empty-title">
           {{
             showBookmarksOnly
-              ? "북마크된 기��가 없습니다"
+              ? "북마크된 기��가 ���습니다"
               : "기사를 찾을 수 없습니다"
           }}
         </h3>
         <p class="empty-message">
           {{
             showBookmarksOnly
-              ? "기사를 ���마크하여 여기서 확인하세요"
+              ? "기사를 북마크하여 여기서 확인하세요"
               : searchQuery
                 ? "검색어를 다시 확인해보세요"
                 : "새로운 기사를 기다려주세요"
