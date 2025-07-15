@@ -195,20 +195,6 @@ onMounted(() => {
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const activeSubTab = ref("news");
-
-    return {
-      activeSubTab,
-    };
-  },
-};
-</script>
-
 <style>
 /* App Layout */
 .app {
