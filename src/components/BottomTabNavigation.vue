@@ -304,20 +304,27 @@ body {
 
 @media (max-width: 480px) {
   .bottom-navigation {
-    padding: 0.5rem 0.5rem 1rem;
-    gap: 0.25rem;
+    padding: 0.75rem 0.5rem 1.25rem;
+    gap: 0.125rem;
   }
 
   .nav-tab {
-    padding: 0.5rem 0.25rem;
+    padding: 0.75rem 0.25rem;
+    min-height: 60px;
   }
 
   .tab-icon {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .tab-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .active-indicator {
+    width: 28px;
+    height: 3px;
   }
 }
 
