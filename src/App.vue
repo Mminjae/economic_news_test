@@ -201,6 +201,12 @@ onMounted(() => {
         :user="currentUser"
         @logout="handleLogout"
       />
+
+      <!-- Authentication Page -->
+      <Authentication
+        v-else-if="activeTab === 'my-page' && !isAuthenticated"
+        @login="handleLogin"
+      />
     </main>
 
     <!-- Bottom Tab Navigation -->
@@ -209,13 +215,6 @@ onMounted(() => {
       :isAuthenticated="isAuthenticated"
       @tab-click="handleTabClick"
       @auth-required="handleAuthRequired"
-    />
-
-    <!-- Authentication Modal -->
-    <Authentication
-      v-if="showAuthModal"
-      @close="closeAuthModal"
-      @login="handleLogin"
     />
   </div>
 </template>
