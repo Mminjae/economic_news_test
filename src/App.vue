@@ -229,11 +229,7 @@ onMounted(() => {
 
 /* Header */
 .app-header {
-  background: linear-gradient(
-    135deg,
-    var(--bg-primary) 0%,
-    var(--bg-secondary) 100%
-  );
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   border-bottom: 2px solid var(--border-color);
   position: sticky;
   top: 0;
@@ -244,7 +240,7 @@ onMounted(() => {
 }
 
 .app-header::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -337,11 +333,7 @@ onMounted(() => {
 }
 
 .dark-mode-toggle {
-  background: linear-gradient(
-    135deg,
-    var(--bg-secondary) 0%,
-    var(--bg-primary) 100%
-  );
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border: 2px solid var(--border-color);
   border-radius: 50%;
   width: 48px;
@@ -359,18 +351,13 @@ onMounted(() => {
 }
 
 .dark-mode-toggle::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(59, 130, 246, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -618,6 +605,24 @@ onMounted(() => {
   }
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .header-container {
+    padding: 1.25rem 2rem;
+  }
+
+  .app-title {
+    font-size: 1.8rem;
+  }
+
+  .user-info {
+    gap: 0.75rem;
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .header-container {
     padding: 1rem;
@@ -638,6 +643,7 @@ onMounted(() => {
   .welcome-text {
     font-size: 0.8rem;
   }
+}
 
   .content-header {
     padding: 2rem 1rem;
