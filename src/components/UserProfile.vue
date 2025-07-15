@@ -45,7 +45,7 @@ const activityHistory = ref([
   {
     date: "2024-03-14",
     type: "news",
-    description: "금융 뉴스 5개 읽음",
+    description: "금�� 뉴스 5개 읽음",
     points: 25,
   },
   {
@@ -252,7 +252,11 @@ onMounted(() => {
         <div class="profile-actions">
           <button @click="exportData" class="action-btn export">
             <span class="btn-icon">📥</span>
-            <span>데��터 내보내기</span>
+            <span>데이터 내보내기</span>
+          </button>
+          <button @click="handleLogout" class="action-btn logout">
+            <span class="btn-icon">🚪</span>
+            <span>로그아웃</span>
           </button>
         </div>
       </div>
