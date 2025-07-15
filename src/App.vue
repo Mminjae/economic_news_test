@@ -474,7 +474,7 @@ onMounted(() => {
 }
 
 .mini-tab::before {
-    content: "";
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
