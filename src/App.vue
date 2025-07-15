@@ -121,8 +121,14 @@ onMounted(() => {
 
     <!-- Main Content -->
     <main class="main-content">
-      <AssetAnalysis v-if="activeTab === 'asset-analysis'" />
-      <SpendingAnalysis v-else-if="activeTab === 'spending-analysis'" />
+      <Home
+        v-if="activeTab === 'home'"
+        :user="currentUser"
+        @navigate="handleTabClick"
+        @show-auth="handleShowAuth"
+      />
+      <AssetAnalysis v-else-if="activeTab === 'assets'" />
+      <Analysis v-else-if="activeTab === 'analysis'" />
 
       <!-- Economic Content - Using existing news components -->
       <div
