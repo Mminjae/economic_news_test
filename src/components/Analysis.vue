@@ -166,9 +166,9 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  border-color: #2563eb;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
 }
 
 .card-icon {
