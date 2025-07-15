@@ -619,17 +619,60 @@ onMounted(() => {
     padding: 0.75rem;
   }
 
-  .mini-tab {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
+  .content-header {
+    padding: 1.5rem 0.75rem;
   }
 
   .content-title {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
   .content-description {
+    font-size: 0.95rem;
+  }
+
+  .content-tabs {
+    padding: 0 0.75rem;
+  }
+
+  .mini-tabs-container {
+    padding: 0.5rem;
+  }
+
+  .mini-tab {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8rem;
+    min-width: 90px;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .tab-icon {
     font-size: 1rem;
+  }
+
+  .tab-text {
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
+  .content-wrapper {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .content-title {
+    font-size: 1.6rem;
+  }
+
+  .mini-tab {
+    padding: 0.5rem 0.75rem;
+    min-width: 80px;
+  }
+
+  .tab-text {
+    font-size: 0.7rem;
   }
 }
 
