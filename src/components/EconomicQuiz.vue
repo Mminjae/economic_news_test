@@ -74,7 +74,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "양적완화는 중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
+        "양적완화�� 중앙은행이 국채 등을 대량 매입하여 시중에 유동성을 공급하는 정책으로, 경기 부양을 목적으로 합니다.",
     },
     {
       id: 5,
@@ -533,7 +533,7 @@ onMounted(() => {
               }}
             </div>
             <div class="mini-stat">
-              포인트: {{ dailyStats[difficulty.id].points }}
+              포인���: {{ dailyStats[difficulty.id].points }}
             </div>
           </div>
         </button>
@@ -1819,6 +1819,35 @@ onMounted(() => {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .dashboard {
+    padding: 2.5rem 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .difficulty-selection {
+    padding: 2.5rem 2rem;
+  }
+
+  .difficulty-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .page-title {
     font-size: 2.5rem;
