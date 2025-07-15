@@ -229,7 +229,7 @@
             </button>
 
             <button class="quick-action" @click="openCalculator">
-              <span class="action-icon">🧮</span>
+              <span class="action-icon">����</span>
               <span class="action-label">계산기</span>
             </button>
           </div>
@@ -728,7 +728,7 @@ const openCalculator = () => {
 .stat-value {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #2563eb;
   min-width: 40px;
   text-align: right;
 }
