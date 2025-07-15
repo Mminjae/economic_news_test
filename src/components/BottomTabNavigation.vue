@@ -78,11 +78,11 @@ const tabs = [
 const handleTabClick = (tab) => {
   // ��증이 필요한 탭이지만 로그인하지 않은 경우
   if (tab.requiresAuth && !props.isAuthenticated) {
-    emit("auth-required", tab.id);
+    emit("auth-required", tab.id); // 인증 필요 이벤트 발생
     return;
   }
 
-  emit("tab-click", tab.id);
+  emit("tab-click", tab.id); // 정상적인 탭 클릭 이벤트 발생
 };
 </script>
 
