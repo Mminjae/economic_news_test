@@ -991,15 +991,40 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .dashboard-main {
-    padding: 1.5rem;
+@media (max-width: 1199px) and (min-width: 768px) {
+  .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
   }
 
+  .filter-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .dashboard-main {
+    max-width: 768px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+
+  .filter-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .dashboard-main {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
   }
 
   .chart-header {
