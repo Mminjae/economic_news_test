@@ -69,7 +69,7 @@ const allTerms = ref([
     term: "환율",
     fullName: "Exchange Rate",
     definition: "한 나라의 화폐와 다른 나라 화폐 사이의 교환비율을 의미합니다.",
-    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습니다.",
+    example: "달러 강세로 원/달러 환율이 1,350원대까지 ��승했습니다.",
     category: "외환",
     bookmark: false,
   },
@@ -428,6 +428,7 @@ watch(searchQuery, () => {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 0 3rem;
 }
 
 .page-title {
