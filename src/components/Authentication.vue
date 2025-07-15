@@ -565,8 +565,9 @@ const handleSubmit = async () => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .auth-container {
+    max-width: 100%;
     padding: 1rem;
   }
 
