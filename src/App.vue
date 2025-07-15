@@ -102,7 +102,7 @@ onMounted(() => {
           <button
             @click="toggleDarkMode"
             class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 ���환' : '다크 모드로 전환'"
+            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
           >
             {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
@@ -516,6 +516,21 @@ onMounted(() => {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .content-tabs {
+    padding: 0 1.5rem;
+  }
+
+  .mini-tabs {
+    gap: 0.5rem;
+  }
+
+  .mini-tab {
+    padding: 0.875rem 1.25rem;
+    min-width: 110px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-container {
     padding: 1rem;
@@ -537,23 +552,61 @@ onMounted(() => {
     font-size: 0.8rem;
   }
 
-  .economic-content {
-    padding: 1rem;
+  .content-header {
+    padding: 2rem 1rem;
   }
 
   .content-title {
-    font-size: 1.6rem;
+    font-size: 2rem;
+  }
+
+  .content-description {
+    font-size: 1rem;
+  }
+
+  .content-tabs {
+    padding: 0 1rem;
+  }
+
+  .mini-tabs-container {
+    padding: 0.75rem;
   }
 
   .mini-tabs {
+    gap: 0.5rem;
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .mini-tabs::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
   }
 
   .mini-tab {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     font-size: 0.9rem;
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+
+  .tab-icon {
+    font-size: 1.1rem;
+  }
+
+  .tab-text {
+    font-size: 0.85rem;
   }
 }
 
