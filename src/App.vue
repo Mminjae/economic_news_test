@@ -640,9 +640,10 @@ onMounted(() => {
     text-align: center;
   }
 
-    .welcome-text {
+  .welcome-text {
     font-size: 0.8rem;
   }
+}
 
   .content-header {
     padding: 2rem 1rem;
@@ -697,7 +698,7 @@ onMounted(() => {
     font-size: 1.1rem;
   }
 
-    .tab-text {
+  .tab-text {
     font-size: 0.85rem;
   }
 }
