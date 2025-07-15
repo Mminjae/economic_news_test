@@ -631,6 +631,8 @@ onMounted(() => {
   .mini-tab {
     padding: 0.875rem 1.25rem;
     min-width: 110px;
+    max-width: 130px;
+    flex: 1;
     flex-shrink: 0;
   }
 }
