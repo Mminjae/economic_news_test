@@ -128,7 +128,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "리카도의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
+        "리카��의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
     },
     {
       id: 9,
@@ -377,10 +377,6 @@ onMounted(() => {
     <section class="dashboard">
       <div class="dashboard-header">
         <h2 class="dashboard-title">��� 오늘의 퀴즈 현황</h2>
-        <button @click="showProfile = !showProfile" class="profile-toggle-btn">
-          <span class="profile-icon">👤</span>
-          <span class="profile-text">프로필</span>
-        </button>
       </div>
 
       <div class="stats-grid">
