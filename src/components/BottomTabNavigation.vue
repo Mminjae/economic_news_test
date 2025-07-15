@@ -98,10 +98,10 @@ const handleTabClick = (tab) => {
 
 .bottom-navigation {
   display: flex;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0.5rem 1rem 1rem;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .nav-tab {
