@@ -916,6 +916,39 @@ const openCalculator = () => {
 }
 
 /* Responsive design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+  }
+
+  .welcome-header {
+    padding: 2rem;
+  }
+
+  .welcome-title {
+    font-size: 1.7rem;
+  }
+
+  .block-header {
+    padding: 1.75rem;
+  }
+
+  .profile-content,
+  .guest-content,
+  .asset-content,
+  .test-content,
+  .actions-content {
+    padding: 1.5rem;
+  }
+
+  .action-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-container {
     grid-template-columns: 1fr;
