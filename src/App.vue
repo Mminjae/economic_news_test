@@ -705,12 +705,28 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .app-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .header-container {
-    padding: 0.75rem;
+    padding: 1rem 0.75rem;
   }
+
+  .header-actions {
+    gap: 0.75rem;
+  }
+
+  .dark-mode-toggle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  .logout-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
 
   .content-header {
     padding: 1.5rem 0.75rem;
