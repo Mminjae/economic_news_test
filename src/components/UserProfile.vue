@@ -45,7 +45,7 @@ const activityHistory = ref([
   {
     date: "2024-03-14",
     type: "news",
-    description: "금�� 뉴스 5개 읽음",
+    description: "금융 뉴스 5개 읽음",
     points: 25,
   },
   {
@@ -185,6 +185,12 @@ const exportData = () => {
   a.download = `profile-${userProfile.value.name}-${new Date().toISOString().split("T")[0]}.json`;
   a.click();
   URL.revokeObjectURL(url);
+};
+
+const handleLogout = () => {
+  if (confirm("정말 로그아웃하시겠습니까?")) {
+    emit("logout");
+  }
 };
 
 const resetProgress = () => {
