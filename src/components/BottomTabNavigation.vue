@@ -62,7 +62,7 @@ const tabs = [
   {
     id: "economic-content",
     label: "경제컨텐츠",
-    icon: "📰",
+    icon: "��",
     requiresAuth: false,
   },
   {
@@ -187,8 +187,9 @@ const handleTabClick = (tab) => {
 }
 
 .nav-tab.active .tab-label {
-  color: var(--primary-color);
+  color: #2563eb;
   font-weight: 700;
+  text-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
 }
 
 .lock-icon {
