@@ -90,10 +90,27 @@ const handleTabClick = (tab) => {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--bg-primary);
-  border-top: 2px solid var(--border-color);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  border-top: 3px solid var(--border-color);
+  box-shadow:
+    0 -8px 32px rgba(0, 0, 0, 0.12),
+    0 -2px 8px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+.bottom-nav-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
 }
 
 .bottom-navigation {
