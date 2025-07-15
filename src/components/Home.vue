@@ -229,7 +229,7 @@
             </button>
 
             <button class="quick-action" @click="openCalculator">
-              <span class="action-icon">����</span>
+              <span class="action-icon">🧮</span>
               <span class="action-label">계산기</span>
             </button>
           </div>
@@ -838,9 +838,14 @@ const openCalculator = () => {
 }
 
 .quick-action:hover {
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
+  border-color: #2563eb;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    rgba(37, 99, 235, 0.05) 100%
+  );
 }
 
 .action-icon {
