@@ -102,7 +102,7 @@ onMounted(() => {
           <button
             @click="toggleDarkMode"
             class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
+            :title="isDarkMode ? '라이트 모드로 ���환' : '다크 모드로 전환'"
           >
             {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
@@ -477,8 +477,42 @@ onMounted(() => {
   border-bottom-color: var(--border-color);
 }
 
+:root.dark .economic-content {
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+}
+
+:root.dark .content-header::before {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.15) 0%,
+    rgba(245, 158, 11, 0.08) 100%
+  );
+}
+
+:root.dark .mini-tabs-container {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
 :root.dark .mini-tab {
   background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+:root.dark .mini-tab:hover {
+  border-color: rgba(251, 191, 36, 0.8);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.3);
+}
+
+:root.dark .content-wrapper {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive Design */
