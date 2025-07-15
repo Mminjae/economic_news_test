@@ -217,7 +217,7 @@ watch(searchQuery, () => {
     <header class="terms-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="page-title">📚 경제용어 사전</h1>
+          <h1 class="page-title">📚 경제��어 사전</h1>
           <p class="page-subtitle">
             경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
           </p>
@@ -588,7 +588,7 @@ watch(searchQuery, () => {
 .terms-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 2rem;
+  padding: 0 3rem 2rem;
 }
 
 /* Empty State */
