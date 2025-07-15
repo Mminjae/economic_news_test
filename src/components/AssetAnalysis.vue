@@ -208,10 +208,22 @@
   background: var(--bg-primary);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .content-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .asset-analysis {
     padding: 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .page-title {
