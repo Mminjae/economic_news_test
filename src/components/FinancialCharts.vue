@@ -576,11 +576,12 @@ onMounted(() => {
 }
 
 .header-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 3rem;
 }
 
 .header-title h1 {
@@ -634,8 +635,9 @@ onMounted(() => {
 }
 
 .filter-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .filter-title {
@@ -703,9 +705,9 @@ onMounted(() => {
 
 /* Main Dashboard */
 .dashboard-main {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
   display: grid;
   gap: 2rem;
 }
@@ -989,15 +991,40 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .dashboard-main {
-    padding: 1.5rem;
+@media (max-width: 1199px) and (min-width: 768px) {
+  .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
   }
 
+  .filter-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .dashboard-main {
+    max-width: 768px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+
+  .filter-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .dashboard-main {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
   }
 
   .chart-header {

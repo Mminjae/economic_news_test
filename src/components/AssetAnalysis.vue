@@ -27,7 +27,7 @@
 
         <div class="feature-card">
           <div class="card-icon">📈</div>
-          <h3 class="card-title">���익률 추적</h3>
+          <h3 class="card-title">수익률 추적</h3>
           <p class="card-description">
             시간별 수익률 변화를 추적하고 분석합니다.
           </p>
@@ -38,7 +38,7 @@
           <div class="card-icon">🎯</div>
           <h3 class="card-title">목표 설정</h3>
           <p class="card-description">
-            재정 목표를 설정하고 달성 계획을 세웁니다.
+            재�� 목표를 설정하고 달성 계획을 세웁니다.
           </p>
           <button class="card-btn">목표 설정</button>
         </div>
@@ -93,6 +93,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .feature-cards {
@@ -207,10 +208,22 @@
   background: var(--bg-primary);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .content-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .asset-analysis {
     padding: 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .page-title {

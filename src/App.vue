@@ -1,4 +1,5 @@
 <script setup>
+// Vue 3 Composition API 및 필요한 컴포넌트들 임포트
 import { ref, onMounted } from "vue";
 import FinanceNews from "./components/FinanceNews.vue";
 import FinancialCharts from "./components/FinancialCharts.vue";
@@ -11,19 +12,20 @@ import Home from "./components/Home.vue";
 import BottomTabNavigation from "./components/BottomTabNavigation.vue";
 import Authentication from "./components/Authentication.vue";
 
-// Tab management
-const activeTab = ref("home");
-const activeSubTab = ref("news");
+// 탭 관리 상태 - 현재 활성화된 메인 탭과 서브 탭
+const activeTab = ref("home"); // 메인 네비게이션 탭 (home, assets, analysis, economic-content, my-page)
+const activeSubTab = ref("news"); // 경제 컨텐츠 내 서브 탭 (news, charts, terms, quiz)
 
-// Authentication management
-const isAuthenticated = ref(false);
-const currentUser = ref(null);
-const showAuthPage = ref(false);
+// 사용자 인증 관리
+const isAuthenticated = ref(false); // 로그인 상태 여부
+const currentUser = ref(null); // 현재 로그인한 사용자 정보
+const showAuthPage = ref(false); // 인증 페이지 표시 여부
 
-// Global dark mode management
-const isDarkMode = ref(false);
+// 전역 다크모드 관리
+const isDarkMode = ref(false); // 다크모드 활성화 여부
 
-// Authentication functions
+// 인증 관련 함수들
+// 로컬스토리지에서 로그인 상태 확인
 const checkAuthStatus = () => {
   const user = localStorage.getItem("currentUser");
   if (user) {
@@ -32,54 +34,62 @@ const checkAuthStatus = () => {
   }
 };
 
+// 로그인 처리 함수
 const handleLogin = (user) => {
   currentUser.value = user;
   isAuthenticated.value = true;
   showAuthPage.value = false;
-  // Redirect to home after login
+  // 로그인 후 홈 페이지로 리다이렉트
   activeTab.value = "home";
 };
 
+// 로그아웃 처리 함수
 const handleLogout = () => {
   localStorage.removeItem("currentUser");
   currentUser.value = null;
   isAuthenticated.value = false;
-  // If currently on My Page, redirect to Home
+  // 마이페이지에 있었다면 홈으로 리다이렉트
   if (activeTab.value === "my-page") {
     activeTab.value = "home";
   }
 };
 
+// 인증이 필요한 탭 접근 시 처리
 const handleAuthRequired = (tabId) => {
   showAuthPage.value = true;
   activeTab.value = "my-page";
 };
 
+// 인증 페이지 표시 요청 처리
 const handleShowAuth = () => {
   showAuthPage.value = true;
   activeTab.value = "my-page";
 };
 
-// Tab navigation
+// 탭 네비게이션 관리
+// 메인 탭 클릭 처리 (하단 네비게이션에서 호출)
 const handleTabClick = (tabId) => {
   activeTab.value = tabId;
-  // Reset to news when switching to economic content
+  // 경제 컨텐츠로 전환 시 뉴스 탭으로 초기화
   if (tabId === "economic-content") {
     activeSubTab.value = "news";
   }
 };
 
+// 내부 컴포넌트에서의 네비게이션 ��청 처리
 const handleNavigation = (tabId) => {
   activeTab.value = tabId;
 };
 
-// Dark mode functions
+// 다크모드 관리 함수들
+// 다크모드 토글 및 로컬스토리지에 저장
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle("dark", isDarkMode.value);
   localStorage.setItem("globalDarkMode", isDarkMode.value);
 };
 
+// 앱 시작 시 로컬스토리지에서 다크모드 설정 불러오기
 const loadDarkMode = () => {
   const saved = localStorage.getItem("globalDarkMode");
   if (saved !== null) {
@@ -88,10 +98,10 @@ const loadDarkMode = () => {
   }
 };
 
-// Lifecycle
+// 컴포넌트 라이프사이클 - 앱 시작 시 초기화 작업
 onMounted(() => {
-  loadDarkMode();
-  checkAuthStatus();
+  loadDarkMode(); // 다크모드 설정 로드
+  checkAuthStatus(); // 로그인 상태 확인
 });
 </script>
 
@@ -111,7 +121,7 @@ onMounted(() => {
           <button
             @click="toggleDarkMode"
             class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
+            :title="isDarkMode ? '라이트 모드��� 전환' : '다크 모드로 전환'"
           >
             {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
@@ -254,19 +264,12 @@ onMounted(() => {
 }
 
 .header-container {
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 3rem;
-}
-
-@media (min-width: 1920px) {
-  .header-container {
-    max-width: 1800px;
-    padding: 1.5rem 4rem;
-  }
+  padding: 1.5rem 3rem;
 }
 
 .app-title {
@@ -448,7 +451,7 @@ onMounted(() => {
 .content-tabs {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .mini-tabs-container {
@@ -480,6 +483,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  max-width: 150px;
   min-width: 120px;
   justify-content: center;
   position: relative;
@@ -613,17 +618,44 @@ onMounted(() => {
 
   .mini-tabs {
     gap: 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .mini-tabs::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
   }
 
   .mini-tab {
     padding: 0.875rem 1.25rem;
     min-width: 110px;
+    max-width: 130px;
+    flex: 1;
+    flex-shrink: 0;
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-container {
+    max-width: 768px;
     padding: 1.25rem 2rem;
+  }
+
+  .content-tabs {
+    max-width: 768px;
+    padding: 0 2rem;
   }
 
   .app-title {
@@ -639,11 +671,13 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-container {
+    max-width: 100%;
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    justify-content: space-between;
   }
 
   .app-title {
@@ -651,9 +685,9 @@ onMounted(() => {
   }
 
   .user-info {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
-    text-align: center;
+    text-align: right;
   }
 
   .welcome-text {
@@ -673,6 +707,7 @@ onMounted(() => {
   }
 
   .content-tabs {
+    max-width: 100%;
     padding: 0 1rem;
   }
 
@@ -706,6 +741,8 @@ onMounted(() => {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     min-width: 100px;
+    max-width: 120px;
+    flex: 1;
     flex-shrink: 0;
   }
 
@@ -724,7 +761,9 @@ onMounted(() => {
   }
 
   .header-container {
-    padding: 1rem 0.75rem;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .header-actions {

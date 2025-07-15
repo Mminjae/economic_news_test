@@ -251,7 +251,7 @@ onMounted(() => {
           <p class="profile-email">{{ userProfile.email }}</p>
           <div class="profile-meta">
             <span class="join-date">📅 {{ daysSinceJoin }}일째 학습 중</span>
-            <span class="streak">🔥 {{ userProfile.streak }}일 연속</span>
+            <span class="streak">🔥 {{ userProfile.streak }}��� 연속</span>
           </div>
         </div>
 
@@ -518,6 +518,7 @@ onMounted(() => {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  padding: 0 3rem;
 }
 
 .profile-avatar {
@@ -649,6 +650,7 @@ onMounted(() => {
 .section-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .section-title {

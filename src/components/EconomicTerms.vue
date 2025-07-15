@@ -69,7 +69,7 @@ const allTerms = ref([
     term: "환율",
     fullName: "Exchange Rate",
     definition: "한 나라의 화폐와 다른 나라 화폐 사이의 교환비율을 의미합니다.",
-    example: "달러 강세로 원/달러 환율이 1,350원대까지 상승했습니다.",
+    example: "달러 강세로 원/달러 환율이 1,350원대까지 ��승했습니다.",
     category: "외환",
     bookmark: false,
   },
@@ -217,7 +217,7 @@ watch(searchQuery, () => {
     <header class="terms-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="page-title">📚 경제용어 사전</h1>
+          <h1 class="page-title">📚 경제��어 사전</h1>
           <p class="page-subtitle">
             경제와 금융 분야의 핵심 용어들을 쉽게 찾아보세요
           </p>
@@ -428,6 +428,7 @@ watch(searchQuery, () => {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 0 3rem;
 }
 
 .page-title {
@@ -587,7 +588,7 @@ watch(searchQuery, () => {
 .terms-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 2rem;
+  padding: 0 3rem 2rem;
 }
 
 /* Empty State */
@@ -1000,10 +1001,39 @@ watch(searchQuery, () => {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .search-section {
+    max-width: 768px;
+    padding: 2rem;
+  }
+
+  .terms-main {
+    max-width: 768px;
+    padding: 0 2rem 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     text-align: center;
+  }
+
+  .search-section {
+    max-width: 100%;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .terms-main {
+    max-width: 100%;
+    padding: 0 1rem 2rem;
   }
 
   .page-title {

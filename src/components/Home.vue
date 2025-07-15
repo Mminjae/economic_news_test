@@ -410,21 +410,15 @@ const openCalculator = () => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 @media (min-width: 1200px) {
   .dashboard-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
-  }
-}
-
-@media (min-width: 1600px) {
-  .dashboard-container {
-    max-width: 1800px;
-    gap: 3rem;
   }
 }
 
@@ -916,11 +910,12 @@ const openCalculator = () => {
 }
 
 /* Responsive design */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .dashboard-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-    max-width: 800px;
+    max-width: 768px;
+    padding: 0 2rem;
   }
 
   .welcome-header {
@@ -949,10 +944,12 @@ const openCalculator = () => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .dashboard-container {
     grid-template-columns: 1fr;
     gap: 1rem;
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .welcome-header {

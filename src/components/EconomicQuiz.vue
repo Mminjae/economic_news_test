@@ -1,7 +1,8 @@
 <script setup>
+// Vue 3 Composition API 임포트
 import { ref, computed, onMounted } from "vue";
 
-// Quiz difficulty levels
+// 퀴즈 난이도 레벨 정의 (초급, 중급, 고급)
 const difficultyLevels = [
   {
     id: "easy",
@@ -29,7 +30,7 @@ const difficultyLevels = [
   },
 ];
 
-// Quiz questions by difficulty
+// 난이도별 퀴즈 문제 데이터
 const quizQuestions = {
   easy: [
     {
@@ -38,7 +39,7 @@ const quizQuestions = {
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
-        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입���다.",
+        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레���션을 나타내는 대표적인 지표입니다.",
     },
     {
       id: 2,
@@ -106,7 +107,7 @@ const quizQuestions = {
   hard: [
     {
       id: 7,
-      question: "테일러 준칙에서 중앙은행이 고���하는 주요 변수는?",
+      question: "테일러 준칙에�� 중앙은행이 고려하는 주요 변수는?",
       options: [
         "GDP와 환율",
         "인플레이션과 산출갭",
@@ -121,14 +122,14 @@ const quizQuestions = {
       id: 8,
       question: "리카도의 비교우위론에 따른 무역의 이익은?",
       options: [
-        "절대우위가 있는 재화만 수출",
+        "절대우위가 있는 재��만 수출",
         "기회비용이 낮은 재화에 특화",
         "모든 재화를 균등하게 생산",
         "자급자족이 최선",
       ],
       correct: 1,
       explanation:
-        "리카도의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
+        "리카��의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
     },
     {
       id: 9,
@@ -146,17 +147,17 @@ const quizQuestions = {
   ],
 };
 
-// Reactive state
-const selectedDifficulty = ref(null);
-const currentQuestionIndex = ref(0);
-const selectedAnswer = ref(null);
-const userAnswers = ref([]);
-const showResult = ref(false);
-const isSubmitted = ref(false);
-const gameStarted = ref(false);
-const showProfile = ref(false);
+// 퀴즈 게임 상태 관리
+const selectedDifficulty = ref(null); // 선택된 난이도 (easy/medium/hard)
+const currentQuestionIndex = ref(0); // 현재 문제 인덱스
+const selectedAnswer = ref(null); // 선택된 답안 인덱스
+const userAnswers = ref([]); // 사용자 답안 기록 배열
+const showResult = ref(false); // 결과 화면 표시 여부
+const isSubmitted = ref(false); // 답안 제출 여부
+const gameStarted = ref(false); // 게임 시작 여부
+const showProfile = ref(false); // 프로필 표시 여부
 
-// Daily stats (stored in localStorage)
+// 일일 통계 데이터 (로컬스토리지에 저장)
 const dailyStats = ref({
   date: new Date().toDateString(),
   easy: { attempted: 0, correct: 0, points: 0 },
@@ -167,7 +168,7 @@ const dailyStats = ref({
   totalAttempted: 0,
 });
 
-// User profile data
+// 사용자 프로필 데이터
 const userProfile = ref({
   name: "경제 학습자",
   level: 1,
@@ -176,17 +177,20 @@ const userProfile = ref({
   streak: 0,
 });
 
-// Computed properties
+// 계산된 속성들 (Computed Properties)
+// 선택된 난이도에 따른 문제 목록
 const currentQuestions = computed(() => {
   return selectedDifficulty.value
     ? quizQuestions[selectedDifficulty.value.id]
     : [];
 });
 
+// 현재 표시될 문제
 const currentQuestion = computed(() => {
   return currentQuestions.value[currentQuestionIndex.value];
 });
 
+// 퀴즈 진행률 계산 (백분율)
 const progressPercentage = computed(() => {
   return (
     ((currentQuestionIndex.value + 1) / currentQuestions.value.length) * 100
@@ -213,12 +217,14 @@ const currentDifficultyStats = computed(() => {
   return dailyStats.value[selectedDifficulty.value.id];
 });
 
-// Methods
+// 퀴즈 게임 주요 함수들
+// 난이도 선택 및 퀴즈 초기화
 const selectDifficulty = (difficulty) => {
   selectedDifficulty.value = difficulty;
   resetQuiz();
 };
 
+// 퀴즈 시작 - 모든 상태 초기화
 const startQuiz = () => {
   if (!selectedDifficulty.value) return;
   gameStarted.value = true;
@@ -229,16 +235,19 @@ const startQuiz = () => {
   isSubmitted.value = false;
 };
 
+// 답안 선택 처리
 const selectAnswer = (optionIndex) => {
   if (isSubmitted.value) return;
   selectedAnswer.value = optionIndex;
 };
 
+// 답안 제출 및 결과 처리
 const submitAnswer = () => {
   if (selectedAnswer.value === null || isSubmitted.value) return;
 
   const isCorrect = selectedAnswer.value === currentQuestion.value.correct;
 
+  // 사용자 답안 기록 저장
   userAnswers.value.push({
     questionId: currentQuestion.value.id,
     selectedAnswer: selectedAnswer.value,
@@ -246,24 +255,25 @@ const submitAnswer = () => {
     explanation: currentQuestion.value.explanation,
   });
 
-  // Update daily stats
+  // 일일 통계 업데이트
   updateDailyStats(isCorrect);
 
   isSubmitted.value = true;
 
-  // Auto advance after 2 seconds
+  // 2초 후 자동으로 다음 문제로 이동
   setTimeout(() => {
     nextQuestion();
   }, 2000);
 };
 
+// 다음 문제로 이동 또는 퀴즈 종료
 const nextQuestion = () => {
   if (currentQuestionIndex.value < currentQuestions.value.length - 1) {
     currentQuestionIndex.value++;
     selectedAnswer.value = null;
     isSubmitted.value = false;
   } else {
-    finishQuiz();
+    finishQuiz(); // 마지막 문제인 경우 퀴즈 종료
   }
 };
 
@@ -376,11 +386,7 @@ onMounted(() => {
     <!-- Daily Dashboard -->
     <section class="dashboard">
       <div class="dashboard-header">
-        <h2 class="dashboard-title">��� 오늘의 퀴즈 현황</h2>
-        <button @click="showProfile = !showProfile" class="profile-toggle-btn">
-          <span class="profile-icon">👤</span>
-          <span class="profile-text">프로필</span>
-        </button>
+        <h2 class="dashboard-title">📊 오늘의 퀴즈 현황</h2>
       </div>
 
       <div class="stats-grid">
@@ -533,7 +539,7 @@ onMounted(() => {
               }}
             </div>
             <div class="mini-stat">
-              포인���: {{ dailyStats[difficulty.id].points }}
+              포인트: {{ dailyStats[difficulty.id].points }}
             </div>
           </div>
         </button>
@@ -710,7 +716,7 @@ onMounted(() => {
 
         <div class="results-actions">
           <button @click="startQuiz" class="retry-btn">
-            <span>다시 도���</span>
+            <span>다시 도전</span>
             <span class="btn-icon">🔄</span>
           </button>
           <button @click="backToSelection" class="back-btn">
@@ -740,22 +746,9 @@ onMounted(() => {
 
 /* Dashboard */
 .dashboard {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-}
-
-@media (min-width: 1200px) {
-  .dashboard {
-    max-width: 1600px;
-    padding: 4rem 3rem;
-  }
-}
-
-@media (min-width: 1600px) {
-  .dashboard {
-    max-width: 1800px;
-  }
+  padding: 3rem;
 }
 
 .dashboard-header {
@@ -1169,14 +1162,7 @@ onMounted(() => {
 .difficulty-selection {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-}
-
-@media (min-width: 1200px) {
-  .difficulty-selection {
-    max-width: 1400px;
-    padding: 4rem 3rem;
-  }
+  padding: 3rem;
 }
 
 .selection-header {
@@ -1819,9 +1805,10 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .dashboard {
-    padding: 2.5rem 2rem;
+    max-width: 768px;
+    padding: 2rem;
   }
 
   .stats-grid {
@@ -1830,7 +1817,8 @@ onMounted(() => {
   }
 
   .difficulty-selection {
-    padding: 2.5rem 2rem;
+    max-width: 768px;
+    padding: 2rem;
   }
 
   .difficulty-grid {
@@ -1848,7 +1836,17 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .dashboard {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .difficulty-selection {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
   .page-title {
     font-size: 2.5rem;
   }

@@ -25,20 +25,29 @@
 </template>
 
 <script setup>
+// 부모 컴포넌트로부터 받는 데이터 (Props)
 const props = defineProps({
   activeTab: {
     type: String,
-    required: true,
+    required: true, // 현재 활성화된 탭 ID
   },
   isAuthenticated: {
     type: Boolean,
-    default: false,
+    default: false, // 사용자 로그인 상태
   },
 });
 
+// 부모 컴포넌트로 보내는 이벤트 정의
 const emit = defineEmits(["tab-click", "auth-required"]);
 
+// 하단 네비게이션 탭 구성 정의
 const tabs = [
+  {
+    id: "home",
+    label: "홈",
+    icon: "🏠",
+    requiresAuth: false,
+  },
   {
     id: "assets",
     label: "자산",
@@ -49,12 +58,6 @@ const tabs = [
     id: "analysis",
     label: "분석",
     icon: "📊",
-    requiresAuth: false,
-  },
-  {
-    id: "home",
-    label: "홈",
-    icon: "🏠",
     requiresAuth: false,
   },
   {
@@ -71,13 +74,15 @@ const tabs = [
   },
 ];
 
+// 탭 클릭 이벤트 처리
 const handleTabClick = (tab) => {
+  // ��증이 필요한 탭이지만 로그인하지 않은 경우
   if (tab.requiresAuth && !props.isAuthenticated) {
-    emit("auth-required", tab.id);
+    emit("auth-required", tab.id); // 인증 필요 이벤트 발생
     return;
   }
 
-  emit("tab-click", tab.id);
+  emit("tab-click", tab.id); // 정상적인 탭 클릭 이벤트 발생
 };
 </script>
 

@@ -1,21 +1,23 @@
 <script setup>
+// Vue 3 Composition API 및 필요한 컴포넌트 임포트
 import { ref, computed, onMounted } from "vue";
 import { mockNewsData } from "../data/newsData.js";
 import NewsCard from "./NewsCard.vue";
 import NewsDetail from "./NewsDetail.vue";
 
-// Reactive state
-const news = ref(mockNewsData);
-const searchQuery = ref("");
-const selectedNews = ref(null);
-const bookmarks = ref(new Set());
-const showBookmarksOnly = ref(false);
+// 뉴스 페이지 상태 관리
+const news = ref(mockNewsData); // 뉴스 데이터 목록
+const searchQuery = ref(""); // 검색 쿠리
+const selectedNews = ref(null); // 선택된 뉴스 아이템 (상세보기용)
+const bookmarks = ref(new Set()); // 북마크된 뉴스 ID 목록
+const showBookmarksOnly = ref(false); // 북마크만 보기 모드
 
-// Computed properties
+// 계산된 속성들
+// 검색어와 북마크 필터링이 적용된 뉴스 목록
 const filteredNews = computed(() => {
   let filtered = news.value;
 
-  // Filter by search query
+  // 검색��로 필터링 (제목, 요약, 출처, 카테고리에서 검색)
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase();
     filtered = filtered.filter(
@@ -27,7 +29,7 @@ const filteredNews = computed(() => {
     );
   }
 
-  // Filter by bookmarks
+  // 북마크만 보기 모드일 때 필터링
   if (showBookmarksOnly.value) {
     filtered = filtered.filter((item) => bookmarks.value.has(item.id));
   }
@@ -35,20 +37,24 @@ const filteredNews = computed(() => {
   return filtered;
 });
 
+// 북마크된 기사 수 계산
 const bookmarkedCount = computed(() => bookmarks.value.size);
 
-// Methods
+// 뉴스 관리 함수들
+// 뉴스 상세보기 모달 열기
 const openNewsDetail = (newsItem) => {
   selectedNews.value = newsItem;
 };
 
+// 뉴스 상세보기 모달 닫기
 const closeNewsDetail = () => {
   selectedNews.value = null;
 };
 
+// 북마크 토글 (추가/제거)
 const toggleBookmark = (newsId) => {
   if (bookmarks.value.has(newsId)) {
-    bookmarks.value.delete(newsId);
+    bookmarks.value.delete(newsId); // 북마크 제거
   } else {
     bookmarks.value.add(newsId);
   }
@@ -148,14 +154,14 @@ onMounted(() => {
         <h3 class="empty-title">
           {{
             showBookmarksOnly
-              ? "북마크된 기사가 없습니다"
+              ? "북마크된 기��가 ���습니다"
               : "기사를 찾을 수 없습니다"
           }}
         </h3>
         <p class="empty-message">
           {{
             showBookmarksOnly
-              ? "기사를 ���마크하여 여기서 확인하세요"
+              ? "기사를 북마크하여 여기서 확인하세요"
               : searchQuery
                 ? "검색어를 다시 확인해보세요"
                 : "새로운 기사를 기다려주세요"
@@ -259,6 +265,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 3rem;
 }
 
 .news-title {
@@ -309,7 +316,7 @@ onMounted(() => {
 .search-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1rem 2rem;
+  padding: 1.5rem 3rem 2rem;
 }
 
 .search-container {
@@ -422,7 +429,7 @@ onMounted(() => {
 .news-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 3rem;
+  padding: 0 3rem 3rem;
 }
 
 .news-grid {
@@ -483,8 +490,27 @@ onMounted(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .search-section {
+    max-width: 768px;
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .news-main {
+    max-width: 768px;
+    padding: 0 2rem 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
@@ -508,7 +534,13 @@ onMounted(() => {
   }
 
   .search-section {
-    padding: 1.5rem 1rem;
+    max-width: 100%;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .news-main {
+    max-width: 100%;
+    padding: 0 1rem 3rem;
   }
 }
 

@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1 class="page-title">💳 소비분석</h1>
       <p class="page-description">
-        당신의 소비 패턴을 분석하고 현명한 지출을 도와드립니다
+        당신의 소비 패턴을 분석하고 ���명한 ���출을 도와드립니다
       </p>
     </div>
 
@@ -22,7 +22,7 @@
           <div class="card-icon">📝</div>
           <h3 class="card-title">예산 관리</h3>
           <p class="card-description">
-            월별 예산을 설정하고 ���출을 추적합니다.
+            월별 예산을 설정하고 지출을 추적합니다.
           </p>
           <button class="card-btn">예산 설정</button>
         </div>
@@ -30,7 +30,7 @@
         <div class="feature-card">
           <div class="card-icon">💡</div>
           <h3 class="card-title">절약 팁</h3>
-          <p class="card-description">개인 맞춤형 절약 방법을 제안합니다.</p>
+          <p class="card-description">개인 맞춤형 절약 방법을 제안합니��.</p>
           <button class="card-btn">팁 보기</button>
         </div>
 
@@ -124,6 +124,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .feature-cards {
@@ -301,10 +302,22 @@
   background: var(--bg-primary);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .content-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .spending-analysis {
     padding: 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .page-title {
