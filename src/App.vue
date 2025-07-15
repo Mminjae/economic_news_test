@@ -254,19 +254,12 @@ onMounted(() => {
 }
 
 .header-container {
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 3rem;
-}
-
-@media (min-width: 1920px) {
-  .header-container {
-    max-width: 1800px;
-    padding: 1.5rem 4rem;
-  }
+  padding: 1.5rem 3rem;
 }
 
 .app-title {
@@ -448,7 +441,7 @@ onMounted(() => {
 .content-tabs {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .mini-tabs-container {
@@ -640,9 +633,15 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-container {
+    max-width: 768px;
     padding: 1.25rem 2rem;
+  }
+
+  .content-tabs {
+    max-width: 768px;
+    padding: 0 2rem;
   }
 
   .app-title {
@@ -658,8 +657,9 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-container {
+    max-width: 100%;
     padding: 1rem;
     flex-direction: row;
     gap: 1rem;
@@ -693,6 +693,7 @@ onMounted(() => {
   }
 
   .content-tabs {
+    max-width: 100%;
     padding: 0 1rem;
   }
 
@@ -744,7 +745,7 @@ onMounted(() => {
   }
 
   .header-container {
-    padding: 1rem 0.75rem;
+    padding: 1rem;
     flex-direction: row;
     justify-content: space-between;
   }
