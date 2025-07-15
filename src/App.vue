@@ -168,7 +168,7 @@ onMounted(() => {
                 class="mini-tab"
                 :class="{ active: activeSubTab === 'terms' }"
               >
-                <span class="tab-icon">����</span>
+                <span class="tab-icon">📚</span>
                 <span class="tab-text">용어</span>
               </button>
               <button
