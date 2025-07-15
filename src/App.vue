@@ -254,12 +254,19 @@ onMounted(() => {
 }
 
 .header-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.25rem 3rem;
+}
+
+@media (min-width: 1920px) {
+  .header-container {
+    max-width: 1800px;
+    padding: 1.5rem 4rem;
+  }
 }
 
 .app-title {
