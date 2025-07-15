@@ -96,7 +96,7 @@ const quizQuestions = {
         "Growth (성장)",
         "Global (글로벌)",
         "Governance (지배구조)",
-        "Green (친환경)",
+        "Green (친��경)",
       ],
       correct: 2,
       explanation:
@@ -463,15 +463,15 @@ onMounted(() => {
                   <div class="breakdown-stat">
                     <span class="breakdown-stat-label">오늘</span>
                     <span class="breakdown-stat-value">
-                      {{ dailyStats[difficulty.id]?.correct || 0 }}/{{
-                        dailyStats[difficulty.id]?.attempted || 0
+                      {{ dailyStats.value[difficulty.id]?.correct || 0 }}/{{
+                        dailyStats.value[difficulty.id]?.attempted || 0
                       }}
                     </span>
                   </div>
                   <div class="breakdown-stat">
                     <span class="breakdown-stat-label">포인트</span>
                     <span class="breakdown-stat-value">{{
-                      dailyStats[difficulty.id]?.points || 0
+                      dailyStats.value[difficulty.id]?.points || 0
                     }}</span>
                   </div>
                 </div>
@@ -710,7 +710,7 @@ onMounted(() => {
 
         <div class="results-actions">
           <button @click="startQuiz" class="retry-btn">
-            <span>다시 도전</span>
+            <span>다시 도���</span>
             <span class="btn-icon">🔄</span>
           </button>
           <button @click="backToSelection" class="back-btn">
