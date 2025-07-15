@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1 class="page-title">📊 분석</h1>
       <p class="page-description">
-        당신의 ��비 패턴과 금융 현황을 분석하고 현명한 지출을 도와드립니다
+        당신의 소비 패턴과 금융 현황을 분석하고 현명한 지출을 도와드립니다
       </p>
     </div>
 
