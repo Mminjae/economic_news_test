@@ -329,12 +329,24 @@ body {
 }
 
 @media (max-width: 360px) {
+  .bottom-navigation {
+    padding: 0.5rem 0.25rem 1rem;
+  }
+
+  .nav-tab {
+    padding: 0.625rem 0.125rem;
+  }
+
   .tab-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 
   .tab-icon {
     font-size: 1.2rem;
+  }
+
+  .active-indicator {
+    width: 24px;
   }
 }
 </style>
