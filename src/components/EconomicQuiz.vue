@@ -34,11 +34,11 @@ const quizQuestions = {
   easy: [
     {
       id: 1,
-      question: "다음 중 인플레이션을 나타내는 지��는?",
+      question: "다음 중 인플레이션을 나타내는 지표는?",
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
-        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입���다.",
+        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레���션을 나타내는 대표적인 지표입니다.",
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ const quizQuestions = {
       options: [
         "인플레이션 억제",
         "유동성 공급 확대",
-        "환��� 상승",
+        "환율 상승",
         "국가부채 감소",
       ],
       correct: 1,
@@ -106,7 +106,7 @@ const quizQuestions = {
   hard: [
     {
       id: 7,
-      question: "테일러 준칙에서 중앙은행이 고���하는 주요 변수는?",
+      question: "테일러 준칙에서 중앙은행이 고려하는 주요 변수는?",
       options: [
         "GDP와 환율",
         "인플레이션과 산출갭",
@@ -376,7 +376,7 @@ onMounted(() => {
     <!-- Daily Dashboard -->
     <section class="dashboard">
       <div class="dashboard-header">
-        <h2 class="dashboard-title">��� 오늘의 퀴즈 현황</h2>
+        <h2 class="dashboard-title">📊 오늘의 퀴즈 현황</h2>
       </div>
 
       <div class="stats-grid">
@@ -529,7 +529,7 @@ onMounted(() => {
               }}
             </div>
             <div class="mini-stat">
-              포인���: {{ dailyStats[difficulty.id].points }}
+              포인트: {{ dailyStats[difficulty.id].points }}
             </div>
           </div>
         </button>
@@ -706,7 +706,7 @@ onMounted(() => {
 
         <div class="results-actions">
           <button @click="startQuiz" class="retry-btn">
-            <span>다시 도���</span>
+            <span>다시 도전</span>
             <span class="btn-icon">🔄</span>
           </button>
           <button @click="backToSelection" class="back-btn">
