@@ -1001,10 +1001,39 @@ watch(searchQuery, () => {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .header-content {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+
+  .search-section {
+    max-width: 768px;
+    padding: 2rem;
+  }
+
+  .terms-main {
+    max-width: 768px;
+    padding: 0 2rem 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
     flex-direction: column;
     text-align: center;
+  }
+
+  .search-section {
+    max-width: 100%;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .terms-main {
+    max-width: 100%;
+    padding: 0 1rem 2rem;
   }
 
   .page-title {
