@@ -1,13 +1,16 @@
 <template>
-  <div class="auth-container">
-    <div class="auth-modal">
-      <div class="auth-header">
-        <h2 class="auth-title">
-          {{ isSignup ? "회원가입" : "로그인" }}
-        </h2>
-        <button @click="$emit('close')" class="close-btn">✕</button>
-      </div>
-
+  <div class="auth-page">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2 class="auth-title">
+            {{ isSignup ? '회원가입' : '로그인' }}
+          </h2>
+          <p class="auth-subtitle">
+            {{ isSignup ? '새 계정을 만들어 서비스를 이용하세요' : '계정에 로그인하여 개인화된 서비스를 이용하세요' }}
+          </p>
+        </div>
+      
       <form @submit.prevent="handleSubmit" class="auth-form">
         <div class="form-group">
           <label for="email" class="form-label">이메일</label>
@@ -20,7 +23,7 @@
             required
           />
         </div>
-
+        
         <div class="form-group">
           <label for="password" class="form-label">비밀번호</label>
           <input
@@ -32,7 +35,7 @@
             required
           />
         </div>
-
+        
         <div v-if="isSignup" class="form-group">
           <label for="confirmPassword" class="form-label">비밀번호 확인</label>
           <input
@@ -44,7 +47,7 @@
             required
           />
         </div>
-
+        
         <div v-if="isSignup" class="form-group">
           <label for="name" class="form-label">이름</label>
           <input
@@ -56,22 +59,22 @@
             required
           />
         </div>
-
+        
         <div v-if="error" class="error-message">
           {{ error }}
         </div>
-
+        
         <button type="submit" class="submit-btn" :disabled="loading">
           <span v-if="loading" class="loading-spinner">⏳</span>
-          {{ isSignup ? "회원가입" : "로그인" }}
+          {{ isSignup ? '회원가입' : '로그인' }}
         </button>
       </form>
-
+      
       <div class="auth-footer">
         <p class="switch-text">
-          {{ isSignup ? "이미 계정이 있으신가요?" : "계정이 없으신가요?" }}
+          {{ isSignup ? '이미 계정이 있으신가요?' : '계정이 없으신가요?' }}
           <button @click="toggleMode" class="switch-btn">
-            {{ isSignup ? "로그인" : "회원가입" }}
+            {{ isSignup ? '로그인' : '회원가입' }}
           </button>
         </p>
       </div>
@@ -80,111 +83,109 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const emit = defineEmits(["close", "login"]);
+const emit = defineEmits(['close', 'login']);
 
 const isSignup = ref(false);
-const email = ref("");
-const password = ref("");
-const confirmPassword = ref("");
-const name = ref("");
-const error = ref("");
+const email = ref('');
+const password = ref('');
+const confirmPassword = ref('');
+const name = ref('');
+const error = ref('');
 const loading = ref(false);
 
 const toggleMode = () => {
   isSignup.value = !isSignup.value;
-  error.value = "";
+  error.value = '';
   clearForm();
 };
 
 const clearForm = () => {
-  email.value = "";
-  password.value = "";
-  confirmPassword.value = "";
-  name.value = "";
+  email.value = '';
+  password.value = '';
+  confirmPassword.value = '';
+  name.value = '';
 };
 
 const validateForm = () => {
   if (!email.value || !password.value) {
-    error.value = "이메일과 비밀번호를 입력해주세요.";
+    error.value = '이메일과 비밀번호를 입력해주세요.';
     return false;
   }
-
+  
   if (isSignup.value) {
     if (!name.value) {
-      error.value = "이름을 입력해주세요.";
+      error.value = '이름을 입력해주세요.';
       return false;
     }
-
+    
     if (password.value !== confirmPassword.value) {
-      error.value = "비밀번호가 일치하지 않습니다.";
+      error.value = '비밀번호가 일치하지 않습니다.';
       return false;
     }
-
+    
     if (password.value.length < 6) {
-      error.value = "비밀번호는 6자 이상이어야 합니다.";
+      error.value = '비밀번호는 6자 이상이어야 합니다.';
       return false;
     }
   }
-
+  
   return true;
 };
 
 const handleSubmit = async () => {
-  error.value = "";
-
+  error.value = '';
+  
   if (!validateForm()) {
     return;
   }
-
+  
   loading.value = true;
-
+  
   try {
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
     if (isSignup.value) {
       // Simulate signup
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-      if (users.find((user) => user.email === email.value)) {
-        error.value = "이미 등록된 이메일입니다.";
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      
+      if (users.find(user => user.email === email.value)) {
+        error.value = '이미 등록된 이메일입니다.';
         return;
       }
-
+      
       const newUser = {
         id: Date.now(),
         email: email.value,
         password: password.value,
-        name: name.value,
+        name: name.value
       };
-
+      
       users.push(newUser);
-      localStorage.setItem("users", JSON.stringify(users));
-
+      localStorage.setItem('users', JSON.stringify(users));
+      
       // Auto login after signup
-      localStorage.setItem("currentUser", JSON.stringify(newUser));
-      emit("login", newUser);
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
+      emit('login', newUser);
     } else {
       // Simulate login
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
-      const user = users.find(
-        (u) => u.email === email.value && u.password === password.value,
-      );
-
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email.value && u.password === password.value);
+      
       if (!user) {
-        error.value = "이메일 또는 비밀번호가 올바르지 않습니다.";
+        error.value = '이메일 또는 비밀번호가 올바르지 않습니다.';
         return;
       }
-
-      localStorage.setItem("currentUser", JSON.stringify(user));
-      emit("login", user);
+      
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      emit('login', user);
     }
-
-    emit("close");
+    
+    emit('close');
   } catch (err) {
-    error.value = "오류가 발생했습니다. 다시 시도해주세요.";
+    error.value = '오류가 발생했습니다. 다시 시도해주세요.';
   } finally {
     loading.value = false;
   }
@@ -211,9 +212,7 @@ const handleSubmit = async () => {
   border-radius: 16px;
   width: 100%;
   max-width: 400px;
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   animation: modalSlideIn 0.3s ease-out;
 }
 
@@ -334,12 +333,8 @@ const handleSubmit = async () => {
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .auth-footer {
@@ -388,19 +383,19 @@ const handleSubmit = async () => {
   .auth-container {
     padding: 0.5rem;
   }
-
+  
   .auth-modal {
     max-width: none;
   }
-
+  
   .auth-header {
     padding: 1rem;
   }
-
+  
   .auth-form {
     padding: 1rem;
   }
-
+  
   .auth-footer {
     padding: 0.75rem 1rem 1rem;
   }
