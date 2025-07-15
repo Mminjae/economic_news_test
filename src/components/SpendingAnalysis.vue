@@ -30,7 +30,7 @@
         <div class="feature-card">
           <div class="card-icon">💡</div>
           <h3 class="card-title">절약 팁</h3>
-          <p class="card-description">개인 맞춤형 절약 방법을 제안합니다.</p>
+          <p class="card-description">개인 맞춤형 절약 방법을 제안합니��.</p>
           <button class="card-btn">팁 보기</button>
         </div>
 
@@ -302,10 +302,22 @@
   background: var(--bg-primary);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .content-container {
+    max-width: 768px;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
   .spending-analysis {
     padding: 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .page-title {
