@@ -528,7 +528,13 @@ onMounted(() => {
   }
 
   .search-section {
-    padding: 1.5rem 1rem;
+    max-width: 100%;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .news-main {
+    max-width: 100%;
+    padding: 0 1rem 3rem;
   }
 }
 
