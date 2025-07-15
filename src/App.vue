@@ -473,6 +473,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  max-width: 150px;
   min-width: 120px;
   justify-content: center;
   position: relative;
