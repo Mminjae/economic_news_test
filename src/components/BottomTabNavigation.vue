@@ -43,12 +43,6 @@ const emit = defineEmits(["tab-click", "auth-required"]);
 // 하단 네비게이션 탭 구성 정의
 const tabs = [
   {
-    id: "home",
-    label: "홈",
-    icon: "🏠",
-    requiresAuth: false,
-  },
-  {
     id: "assets",
     label: "자산",
     icon: "💰",
@@ -58,6 +52,12 @@ const tabs = [
     id: "analysis",
     label: "분석",
     icon: "📊",
+    requiresAuth: false,
+  },
+  {
+    id: "home",
+    label: "홈",
+    icon: "🏠",
     requiresAuth: false,
   },
   {
