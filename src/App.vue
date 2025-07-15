@@ -6,7 +6,8 @@ import EconomicTerms from "./components/EconomicTerms.vue";
 import EconomicQuiz from "./components/EconomicQuiz.vue";
 import UserProfile from "./components/UserProfile.vue";
 import AssetAnalysis from "./components/AssetAnalysis.vue";
-import SpendingAnalysis from "./components/SpendingAnalysis.vue";
+import Analysis from "./components/Analysis.vue";
+import Home from "./components/Home.vue";
 import BottomTabNavigation from "./components/BottomTabNavigation.vue";
 import Authentication from "./components/Authentication.vue";
 
