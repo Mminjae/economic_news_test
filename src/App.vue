@@ -100,7 +100,7 @@ onMounted(() => {
     <!-- Header with app title and dark mode toggle -->
     <header class="app-header">
       <div class="header-container">
-        <h1 class="app-title">🏦 ��크랩</h1>
+        <h1 class="app-title">🏦 뱅크랩</h1>
         <div class="header-actions">
           <div v-if="isAuthenticated" class="user-info">
             <span class="welcome-text"
@@ -248,13 +248,20 @@ onMounted(() => {
 
 .app-title {
   margin: 0;
-  font-size: 1.6rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.025em;
+  text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+  transition: all 0.3s ease;
+}
+
+.app-title:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .header-actions {
