@@ -1,13 +1,22 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, defineProps, defineEmits } from "vue";
 
-// User profile data
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["logout"]);
+
+// User profile data - merge with passed user data
 const userProfile = ref({
-  name: "경제 학습자",
-  email: "user@example.com",
+  name: props.user?.name || "경제 학습자",
+  email: props.user?.email || "user@example.com",
   level: 1,
   totalPoints: 0,
-  joinDate: "2024-01-15",
+  joinDate: props.user?.joinDate || "2024-01-15",
   streak: 0,
   achievements: [],
   stats: {
@@ -243,7 +252,7 @@ onMounted(() => {
         <div class="profile-actions">
           <button @click="exportData" class="action-btn export">
             <span class="btn-icon">📥</span>
-            <span>데이터 내보내기</span>
+            <span>데��터 내보내기</span>
           </button>
         </div>
       </div>
