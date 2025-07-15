@@ -731,6 +731,8 @@ onMounted(() => {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     min-width: 100px;
+    max-width: 120px;
+    flex: 1;
     flex-shrink: 0;
   }
 
