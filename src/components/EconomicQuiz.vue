@@ -122,8 +122,8 @@ const quizQuestions = {
       question: "리카도의 비교우위론에 따른 무역의 이익은?",
       options: [
         "절대우위가 있는 재화만 수출",
-        "기회비��이 낮은 재화에 특화",
-        "모든 재화��� 균등하게 생산",
+        "기회비����� 낮은 재화에 특화",
+        "모든 재화를 균등하게 생산",
         "자급자족이 최선",
       ],
       correct: 1,
@@ -376,7 +376,7 @@ onMounted(() => {
     <!-- Daily Dashboard -->
     <section class="dashboard">
       <div class="dashboard-header">
-        <h2 class="dashboard-title">📊 오늘의 퀴즈 현황</h2>
+        <h2 class="dashboard-title">��� 오늘의 퀴즈 현황</h2>
         <button @click="showProfile = !showProfile" class="profile-toggle-btn">
           <span class="profile-icon">👤</span>
           <span class="profile-text">프로필</span>
@@ -1167,9 +1167,16 @@ onMounted(() => {
 
 /* Difficulty Selection */
 .difficulty-selection {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 1200px) {
+  .difficulty-selection {
+    max-width: 1400px;
+    padding: 4rem 3rem;
+  }
 }
 
 .selection-header {
