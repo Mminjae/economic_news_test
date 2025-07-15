@@ -154,7 +154,7 @@ const handleTabClick = (tab) => {
 }
 
 .tab-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--text-secondary);
   transition: all 0.3s ease;
