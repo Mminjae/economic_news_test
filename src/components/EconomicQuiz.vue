@@ -38,7 +38,7 @@ const quizQuestions = {
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
-        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입니다.",
+        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입���다.",
     },
     {
       id: 2,
@@ -115,7 +115,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)을 고려하�� 통화정책 준칙입니다.",
+        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)��� 고려하�� 통화정책 준칙입니다.",
     },
     {
       id: 8,
@@ -578,7 +578,7 @@ onMounted(() => {
       <div v-if="!gameStarted" class="start-screen">
         <div class="start-card">
           <h2>{{ selectedDifficulty.label }} 퀴즈 준비</h2>
-          <p>{{ currentQuestions.length }}개의 문제가 준비되어 있습니다.</p>
+          <p>{{ currentQuestions.length }}개의 문제가 준비되�� 있습니다.</p>
           <p>
             각 정답마��
             <strong>{{ selectedDifficulty.points }} 포인트</strong>를 획득할 수
@@ -1878,6 +1878,63 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
+  .dashboard {
+    padding: 1.5rem 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .difficulty-selection {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .difficulty-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .difficulty-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .difficulty-icon {
+    font-size: 2.5rem;
+  }
+
+  .difficulty-title {
+    font-size: 1.3rem;
+  }
+
   .quiz-card {
     padding: 2rem;
   }
@@ -1900,6 +1957,29 @@ onMounted(() => {
 
   .profile-section {
     bottom: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 16px;
+  }
+
+  .profile-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .profile-content {
+    padding: 1.5rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
