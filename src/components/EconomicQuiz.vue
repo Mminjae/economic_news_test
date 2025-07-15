@@ -123,7 +123,7 @@ const quizQuestions = {
       options: [
         "절대우위가 있는 재화만 수출",
         "기회비��이 낮은 재화에 특화",
-        "모든 재화를 균등하게 생산",
+        "모든 재화��� 균등하게 생산",
         "자급자족이 최선",
       ],
       correct: 1,
@@ -786,8 +786,15 @@ onMounted(() => {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 .stat-card {
