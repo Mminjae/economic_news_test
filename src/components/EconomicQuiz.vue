@@ -122,7 +122,7 @@ const quizQuestions = {
       question: "리카도의 비교우위론에 따른 무역의 이익은?",
       options: [
         "절대우위가 있는 재화만 수출",
-        "기회비용이 낮은 재화에 특화",
+        "기회비��이 낮은 재화에 특화",
         "모든 재화를 균등하게 생산",
         "자급자족이 최선",
       ],
@@ -154,6 +154,7 @@ const userAnswers = ref([]);
 const showResult = ref(false);
 const isSubmitted = ref(false);
 const gameStarted = ref(false);
+const showProfile = ref(false);
 
 // Daily stats (stored in localStorage)
 const dailyStats = ref({
