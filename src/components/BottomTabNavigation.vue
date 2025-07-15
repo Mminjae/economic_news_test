@@ -282,6 +282,26 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .bottom-navigation {
+    max-width: 600px;
+    padding: 0.75rem 1.5rem 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .nav-tab {
+    padding: 1rem 0.75rem;
+  }
+
+  .tab-icon {
+    font-size: 1.4rem;
+  }
+
+  .tab-label {
+    font-size: 0.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .bottom-navigation {
     padding: 0.5rem 0.5rem 1rem;
