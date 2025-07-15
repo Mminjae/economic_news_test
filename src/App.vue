@@ -480,10 +480,10 @@ onMounted(() => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+    background: linear-gradient(
     90deg,
     transparent,
-    rgba(251, 191, 36, 0.1),
+    rgba(37, 99, 235, 0.1),
     transparent
   );
   transition: left 0.5s ease;
