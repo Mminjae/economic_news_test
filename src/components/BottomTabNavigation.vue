@@ -217,10 +217,17 @@ const handleTabClick = (tab) => {
   from {
     width: 0;
     opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  50% {
+    width: 36px;
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.1);
   }
   to {
-    width: 24px;
+    width: 32px;
     opacity: 1;
+    transform: translateX(-50%) scale(1);
   }
 }
 
