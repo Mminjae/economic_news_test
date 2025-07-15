@@ -27,7 +27,7 @@
 
         <div class="feature-card">
           <div class="card-icon">📈</div>
-          <h3 class="card-title">수익률 추적</h3>
+          <h3 class="card-title">���익률 추적</h3>
           <p class="card-description">
             시간별 수익률 변화를 추적하고 분석합니다.
           </p>
@@ -77,10 +77,11 @@
   margin: 0 0 1rem 0;
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 }
 
 .page-description {
