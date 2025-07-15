@@ -576,11 +576,12 @@ onMounted(() => {
 }
 
 .header-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 3rem;
 }
 
 .header-title h1 {
