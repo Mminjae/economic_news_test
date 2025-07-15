@@ -62,7 +62,7 @@ const tabs = [
   {
     id: "economic-content",
     label: "경제컨텐츠",
-    icon: "��",
+    icon: "📰",
     requiresAuth: false,
   },
   {
@@ -205,11 +205,12 @@ const handleTabClick = (tab) => {
   bottom: -0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 24px;
-  height: 3px;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-  border-radius: 2px;
-  animation: slideIn 0.3s ease-out;
+  width: 32px;
+  height: 4px;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  border-radius: 4px;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.5);
 }
 
 @keyframes slideIn {
