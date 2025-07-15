@@ -1,4 +1,5 @@
 <script setup>
+// Vue 3 Composition API 및 필요한 컴포넌트들 임포트
 import { ref, onMounted } from "vue";
 import FinanceNews from "./components/FinanceNews.vue";
 import FinancialCharts from "./components/FinancialCharts.vue";
@@ -11,19 +12,20 @@ import Home from "./components/Home.vue";
 import BottomTabNavigation from "./components/BottomTabNavigation.vue";
 import Authentication from "./components/Authentication.vue";
 
-// Tab management
-const activeTab = ref("home");
-const activeSubTab = ref("news");
+// 탭 관리 상태 - 현재 활성화된 메인 탭과 서브 탭
+const activeTab = ref("home"); // 메인 네비게이션 탭 (home, assets, analysis, economic-content, my-page)
+const activeSubTab = ref("news"); // 경제 컨텐츠 내 서브 탭 (news, charts, terms, quiz)
 
-// Authentication management
-const isAuthenticated = ref(false);
-const currentUser = ref(null);
-const showAuthPage = ref(false);
+// 사용자 인증 관리
+const isAuthenticated = ref(false); // 로그인 상태 여부
+const currentUser = ref(null); // 현재 로그인한 사용자 정보
+const showAuthPage = ref(false); // 인증 페이지 표시 여부
 
-// Global dark mode management
-const isDarkMode = ref(false);
+// 전역 다크모드 관리
+const isDarkMode = ref(false); // 다크모드 활성화 여부
 
-// Authentication functions
+// 인증 관련 함수들
+// 로컬스토리지에서 로그인 상태 확인
 const checkAuthStatus = () => {
   const user = localStorage.getItem("currentUser");
   if (user) {
@@ -32,19 +34,21 @@ const checkAuthStatus = () => {
   }
 };
 
+// 로그인 처리 함수
 const handleLogin = (user) => {
   currentUser.value = user;
   isAuthenticated.value = true;
   showAuthPage.value = false;
-  // Redirect to home after login
+  // 로그인 후 홈 페이지로 리다이렉트
   activeTab.value = "home";
 };
 
+// 로그아웃 처리 함수
 const handleLogout = () => {
   localStorage.removeItem("currentUser");
   currentUser.value = null;
   isAuthenticated.value = false;
-  // If currently on My Page, redirect to Home
+  // 마이페이지에 있었다면 홈으로 리다이렉트
   if (activeTab.value === "my-page") {
     activeTab.value = "home";
   }
@@ -111,7 +115,7 @@ onMounted(() => {
           <button
             @click="toggleDarkMode"
             class="dark-mode-toggle"
-            :title="isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'"
+            :title="isDarkMode ? '라이트 모드��� 전환' : '다크 모드로 전환'"
           >
             {{ isDarkMode ? "☀️" : "🌙" }}
           </button>
