@@ -121,52 +121,62 @@ onMounted(() => {
         class="economic-content"
       >
         <div class="content-header">
-          <h2 class="content-title">📰 경제 컨텐츠</h2>
-          <p class="content-description">
-            최신 경제 뉴스와 금융 정보를 확인하세요
-          </p>
+          <div class="header-background">
+            <h2 class="content-title">📰 경제 컨텐츠</h2>
+            <p class="content-description">
+              최신 경제 뉴스와 금융 정보를 확인하세요
+            </p>
+          </div>
         </div>
 
         <div class="content-tabs">
-          <div class="mini-tabs">
-            <button
-              @click="activeSubTab = 'news'"
-              class="mini-tab"
-              :class="{ active: activeSubTab === 'news' }"
-            >
-              📰 뉴스
-            </button>
-            <button
-              @click="activeSubTab = 'charts'"
-              class="mini-tab"
-              :class="{ active: activeSubTab === 'charts' }"
-            >
-              📈 차트
-            </button>
-            <button
-              @click="activeSubTab = 'terms'"
-              class="mini-tab"
-              :class="{ active: activeSubTab === 'terms' }"
-            >
-              📚 용어
-            </button>
-            <button
-              @click="activeSubTab = 'quiz'"
-              class="mini-tab"
-              :class="{ active: activeSubTab === 'quiz' }"
-            >
-              🧠 퀴즈
-            </button>
+          <div class="mini-tabs-container">
+            <div class="mini-tabs">
+              <button
+                @click="activeSubTab = 'news'"
+                class="mini-tab"
+                :class="{ active: activeSubTab === 'news' }"
+              >
+                <span class="tab-icon">📰</span>
+                <span class="tab-text">뉴스</span>
+              </button>
+              <button
+                @click="activeSubTab = 'charts'"
+                class="mini-tab"
+                :class="{ active: activeSubTab === 'charts' }"
+              >
+                <span class="tab-icon">📈</span>
+                <span class="tab-text">차트</span>
+              </button>
+              <button
+                @click="activeSubTab = 'terms'"
+                class="mini-tab"
+                :class="{ active: activeSubTab === 'terms' }"
+              >
+                <span class="tab-icon">📚</span>
+                <span class="tab-text">용어</span>
+              </button>
+              <button
+                @click="activeSubTab = 'quiz'"
+                class="mini-tab"
+                :class="{ active: activeSubTab === 'quiz' }"
+              >
+                <span class="tab-icon">🧠</span>
+                <span class="tab-text">퀴즈</span>
+              </button>
+            </div>
           </div>
 
           <div class="mini-tab-content">
-            <FinanceNews v-if="activeSubTab === 'news'" />
-            <FinancialCharts v-else-if="activeSubTab === 'charts'" />
-            <EconomicTerms v-else-if="activeSubTab === 'terms'" />
-            <EconomicQuiz
-              v-else-if="activeSubTab === 'quiz'"
-              @navigate="handleNavigation"
-            />
+            <div class="content-wrapper">
+              <FinanceNews v-if="activeSubTab === 'news'" />
+              <FinancialCharts v-else-if="activeSubTab === 'charts'" />
+              <EconomicTerms v-else-if="activeSubTab === 'terms'" />
+              <EconomicQuiz
+                v-else-if="activeSubTab === 'quiz'"
+                @navigate="handleNavigation"
+              />
+            </div>
           </div>
         </div>
       </div>
