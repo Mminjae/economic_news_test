@@ -697,7 +697,7 @@ onMounted(() => {
     font-size: 1.1rem;
   }
 
-  .tab-text {
+    .tab-text {
     font-size: 0.85rem;
   }
 }
