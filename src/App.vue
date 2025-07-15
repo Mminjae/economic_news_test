@@ -488,9 +488,9 @@ onMounted(() => {
 
 .mini-tab:hover {
   color: var(--text-primary);
-  border-color: rgba(251, 191, 36, 0.6);
+  border-color: rgba(37, 99, 235, 0.6);
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
 }
 
 .mini-tab.active {
