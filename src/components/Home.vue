@@ -225,7 +225,7 @@
 
             <button @click="$emit('navigate', 'assets')" class="quick-action">
               <span class="action-icon">💎</span>
-              <span class="action-label">자산 관리</span>
+              <span class="action-label">��산 관리</span>
             </button>
 
             <button class="quick-action" @click="openCalculator">
@@ -240,7 +240,7 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({
   user: {
