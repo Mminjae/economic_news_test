@@ -304,73 +304,166 @@ onMounted(() => {
 
 /* Economic Content Styles */
 .economic-content {
-  padding: 2rem;
+  min-height: calc(100vh - 140px);
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
 }
 
 .content-header {
+  position: relative;
+  padding: 3rem 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.header-background {
+  position: relative;
+  z-index: 2;
+}
+
+.content-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.1) 0%,
+    rgba(245, 158, 11, 0.05) 100%
+  );
+  z-index: 1;
 }
 
 .content-title {
-  margin: 0 0 0.5rem 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .content-description {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .content-tabs {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mini-tabs-container {
+  background: var(--bg-primary);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--border-color);
 }
 
 .mini-tabs {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .mini-tab {
   background: var(--bg-secondary);
   border: 2px solid var(--border-color);
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
   color: var(--text-secondary);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(251, 191, 36, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.mini-tab:hover::before {
+  left: 100%;
 }
 
 .mini-tab:hover {
   color: var(--text-primary);
-  border-color: rgba(251, 191, 36, 0.4);
-  transform: translateY(-1px);
+  border-color: rgba(251, 191, 36, 0.6);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.2);
 }
 
 .mini-tab.active {
   background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
   color: white;
   border-color: transparent;
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+  transform: translateY(-2px);
+}
+
+.mini-tab.active::before {
+  display: none;
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+}
+
+.tab-text {
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .mini-tab-content {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeInUp 0.4s ease-out;
 }
 
-@keyframes fadeIn {
+.content-wrapper {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
