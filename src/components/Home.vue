@@ -59,7 +59,7 @@
             <span class="guest-icon">🔐</span>
           </div>
           <div class="guest-info">
-            <h4 class="guest-title">로그인이 필요합니다</h4>
+            <h4 class="guest-title">로그인��� 필요합니다</h4>
             <p class="guest-description">
               개인화된 서비스를 이용하려면 로그인하세요
             </p>
@@ -174,7 +174,7 @@
             <div class="prompt-content">
               <h4 class="prompt-title">투자 성향을 알아보세요</h4>
               <p class="prompt-description">
-                간단한 질문으로 당신의 투자 성향을 파악하고<br />
+                ��단한 질문으로 당신의 투자 성향을 파악하고<br />
                 맞춤형 투자 조언을 받아보세요
               </p>
               <div class="test-features">
@@ -334,14 +334,42 @@ const openCalculator = () => {
 .welcome-header {
   background: linear-gradient(
     135deg,
-    rgba(251, 191, 36, 0.1) 0%,
-    rgba(245, 158, 11, 0.05) 100%
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(37, 99, 235, 0.05) 100%
   );
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 24px;
+  padding: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
   border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+
+.welcome-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 .welcome-title {
