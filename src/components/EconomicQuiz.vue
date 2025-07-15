@@ -1,7 +1,8 @@
 <script setup>
+// Vue 3 Composition API 임포트
 import { ref, computed, onMounted } from "vue";
 
-// Quiz difficulty levels
+// 퀴즈 난이도 레벨 정의 (초급, 중급, 고급)
 const difficultyLevels = [
   {
     id: "easy",
@@ -29,7 +30,7 @@ const difficultyLevels = [
   },
 ];
 
-// Quiz questions by difficulty
+// 난이도별 퀴즈 문제 데이터
 const quizQuestions = {
   easy: [
     {
@@ -121,7 +122,7 @@ const quizQuestions = {
       id: 8,
       question: "리카도의 비교우위론에 따른 무역의 이익은?",
       options: [
-        "절대우위가 있는 재화만 수출",
+        "절대우위가 있는 재��만 수출",
         "기회비용이 낮은 재화에 특화",
         "모든 재화를 균등하게 생산",
         "자급자족이 최선",
