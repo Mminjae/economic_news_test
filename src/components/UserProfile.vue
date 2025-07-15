@@ -630,6 +630,14 @@ onMounted(() => {
   color: #3b82f6;
 }
 
+.logout {
+  color: #ef4444;
+}
+
+.logout:hover {
+  border-color: #ef4444;
+}
+
 /* Sections */
 .progress-section,
 .achievements-section,
