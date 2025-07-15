@@ -12,13 +12,13 @@ import BottomTabNavigation from "./components/BottomTabNavigation.vue";
 import Authentication from "./components/Authentication.vue";
 
 // Tab management
-const activeTab = ref("asset-analysis");
+const activeTab = ref("home");
 const activeSubTab = ref("news");
 
 // Authentication management
 const isAuthenticated = ref(false);
 const currentUser = ref(null);
-const showAuthModal = ref(false);
+const showAuthPage = ref(false);
 
 // Global dark mode management
 const isDarkMode = ref(false);
