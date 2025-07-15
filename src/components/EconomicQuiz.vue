@@ -78,7 +78,7 @@ const quizQuestions = {
     },
     {
       id: 5,
-      question: "필립스 곡선이 나타내��� 관계는?",
+      question: "��립스 곡선이 나타내��� 관계는?",
       options: [
         "GDP와 인플레이션",
         "실업률과 인플레이션",
@@ -115,7 +115,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)을 고려하는 통화정책 준칙입니다.",
+        "테일러 준칙은 중앙은행이 기준금리를 설정할 때 인플레이션율과 산출갭(실제GDP와 잠재GDP의 차이)을 고려하�� 통화정책 준칙입니다.",
     },
     {
       id: 8,
@@ -580,7 +580,7 @@ onMounted(() => {
           <h2>{{ selectedDifficulty.label }} 퀴즈 준비</h2>
           <p>{{ currentQuestions.length }}개의 문제가 준비되어 있습니다.</p>
           <p>
-            각 정답마다
+            각 정답마��
             <strong>{{ selectedDifficulty.points }} 포인트</strong>를 획득할 수
             있습니다.
           </p>
@@ -720,18 +720,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <!-- My Profile Button -->
-    <div class="profile-section">
-      <button @click="navigateToProfile" class="profile-btn">
-        <span class="profile-icon">👤</span>
-        <span class="profile-text">마이 프로필</span>
-        <div class="profile-info">
-          <div class="profile-level">Lv.{{ userProfile.level }}</div>
-          <div class="profile-points">{{ userProfile.totalPoints }}P</div>
-        </div>
-      </button>
-    </div>
   </div>
 </template>
 
