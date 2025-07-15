@@ -224,7 +224,7 @@
             </button>
 
             <button @click="$emit('navigate', 'assets')" class="quick-action">
-              <span class="action-icon">���</span>
+              <span class="action-icon">💎</span>
               <span class="action-label">자산 관리</span>
             </button>
 
@@ -315,7 +315,7 @@ const retakeTest = () => {
 };
 
 const openCalculator = () => {
-  alert("계산기 기능을 준비 중입니다!");
+  alert("계산기 기능을 준비 중입��다!");
 };
 </script>
 
@@ -463,20 +463,21 @@ const openCalculator = () => {
 }
 
 .action-button {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .action-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
 /* Profile Block */
