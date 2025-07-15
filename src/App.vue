@@ -613,11 +613,30 @@ onMounted(() => {
 
   .mini-tabs {
     gap: 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .mini-tabs::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .mini-tabs::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
   }
 
   .mini-tab {
     padding: 0.875rem 1.25rem;
     min-width: 110px;
+    flex-shrink: 0;
   }
 }
 
