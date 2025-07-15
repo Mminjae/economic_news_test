@@ -21,7 +21,7 @@
         <div class="feature-card">
           <div class="card-icon">💎</div>
           <h3 class="card-title">자산 배분</h3>
-          <p class="card-description">최적의 자산 배��� 전략을 제시합니다.</p>
+          <p class="card-description">최적의 자산 배분 전략을 제시합니다.</p>
           <button class="card-btn">배분 보기</button>
         </div>
 
@@ -134,9 +134,9 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  border-color: #2563eb;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
 }
 
 .card-icon {
