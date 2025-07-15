@@ -719,8 +719,10 @@ const openCalculator = () => {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   transition: width 0.5s ease;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
 }
 
 .stat-value {
