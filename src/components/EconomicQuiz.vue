@@ -38,7 +38,7 @@ const quizQuestions = {
       options: ["GDP", "소비자물가지수(CPI)", "실업률", "환율"],
       correct: 1,
       explanation:
-        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입니다.",
+        "소비자물가지수(CPI)는 소비자가 구입하는 재화와 서비스의 가격 변동을 측정하여 인플레이션을 나타내는 대표적인 지표입���다.",
     },
     {
       id: 2,
@@ -106,7 +106,7 @@ const quizQuestions = {
   hard: [
     {
       id: 7,
-      question: "테일러 준칙에서 중앙은행이 고려하는 주요 변수는?",
+      question: "테일러 준칙에서 중앙은행이 고���하는 주요 변수는?",
       options: [
         "GDP와 환율",
         "인플레이션과 산출갭",
@@ -154,6 +154,7 @@ const userAnswers = ref([]);
 const showResult = ref(false);
 const isSubmitted = ref(false);
 const gameStarted = ref(false);
+const showProfile = ref(false);
 
 // Daily stats (stored in localStorage)
 const dailyStats = ref({
@@ -359,7 +360,7 @@ const loadUserProfile = () => {
 
 const emit = defineEmits(["navigate"]);
 
-const showProfile = () => {
+const navigateToProfile = () => {
   emit("navigate", "profile");
 };
 
@@ -375,7 +376,11 @@ onMounted(() => {
     <!-- Daily Dashboard -->
     <section class="dashboard">
       <div class="dashboard-header">
-        <h2 class="dashboard-title">📊 오늘의 퀴즈 현황</h2>
+        <h2 class="dashboard-title">��� 오늘의 퀴즈 현황</h2>
+        <button @click="showProfile = !showProfile" class="profile-toggle-btn">
+          <span class="profile-icon">👤</span>
+          <span class="profile-text">프로필</span>
+        </button>
       </div>
 
       <div class="stats-grid">
@@ -383,7 +388,7 @@ onMounted(() => {
           <div class="stat-icon">💰</div>
           <div class="stat-content">
             <div class="stat-number">{{ totalDailyPoints }}</div>
-            <div class="stat-label">적립 포인트</div>
+            <div class="stat-label">적립 포인��</div>
           </div>
         </div>
 
@@ -400,6 +405,98 @@ onMounted(() => {
           <div class="stat-content">
             <div class="stat-number">{{ overallAccuracy }}%</div>
             <div class="stat-label">정답률</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Section -->
+      <div v-if="showProfile" class="profile-section">
+        <div class="profile-header">
+          <h3 class="profile-title">📈 총 누적 현황</h3>
+          <button @click="showProfile = false" class="close-profile-btn">
+            ✕
+          </button>
+        </div>
+
+        <div class="profile-content">
+          <div class="profile-stats">
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">🏆</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">{{ userProfile.level }}</div>
+                <div class="profile-stat-label">레벨</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">💰</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">
+                  {{ userProfile.totalPoints }}
+                </div>
+                <div class="profile-stat-label">총 포인트</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="profile-stat-icon">🔥</div>
+              <div class="profile-stat-info">
+                <div class="profile-stat-value">{{ userProfile.streak }}</div>
+                <div class="profile-stat-label">연속 도전</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="difficulty-breakdown">
+            <h4 class="breakdown-title">난이도�� 성과</h4>
+            <div class="breakdown-grid">
+              <div
+                v-for="difficulty in difficultyLevels"
+                :key="difficulty.id"
+                class="breakdown-item"
+              >
+                <div class="breakdown-header">
+                  <span class="breakdown-icon">{{ difficulty.icon }}</span>
+                  <span class="breakdown-name">{{ difficulty.label }}</span>
+                </div>
+                <div class="breakdown-stats">
+                  <div class="breakdown-stat">
+                    <span class="breakdown-stat-label">오늘</span>
+                    <span class="breakdown-stat-value">
+                      {{ dailyStats.value[difficulty.id]?.correct || 0 }}/{{
+                        dailyStats.value[difficulty.id]?.attempted || 0
+                      }}
+                    </span>
+                  </div>
+                  <div class="breakdown-stat">
+                    <span class="breakdown-stat-label">포인트</span>
+                    <span class="breakdown-stat-value">{{
+                      dailyStats.value[difficulty.id]?.points || 0
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="today-summary">
+            <h4 class="summary-title">오늘의 요약</h4>
+            <div class="summary-content">
+              <div class="summary-item">
+                <span class="summary-label">총 ��도</span>
+                <span class="summary-value"
+                  >{{ dailyStats.totalAttempted }}문제</span
+                >
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">정답률</span>
+                <span class="summary-value">{{ overallAccuracy }}%</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">획득 포인트</span>
+                <span class="summary-value">{{ totalDailyPoints }}점</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -436,7 +533,7 @@ onMounted(() => {
               }}
             </div>
             <div class="mini-stat">
-              포인트: {{ dailyStats[difficulty.id].points }}
+              포인���: {{ dailyStats[difficulty.id].points }}
             </div>
           </div>
         </button>
@@ -481,9 +578,9 @@ onMounted(() => {
       <div v-if="!gameStarted" class="start-screen">
         <div class="start-card">
           <h2>{{ selectedDifficulty.label }} 퀴즈 준비</h2>
-          <p>{{ currentQuestions.length }}개의 문제가 준비되어 있습니다.</p>
+          <p>{{ currentQuestions.length }}개의 문제가 준비되�� 있습니다.</p>
           <p>
-            각 정답마다
+            각 정답마��
             <strong>{{ selectedDifficulty.points }} 포인트</strong>를 획득할 수
             있습니다.
           </p>
@@ -606,14 +703,14 @@ onMounted(() => {
                   )
                 }}%
               </div>
-              <div class="result-label">정답률</div>
+              <div class="result-label">��답률</div>
             </div>
           </div>
         </div>
 
         <div class="results-actions">
           <button @click="startQuiz" class="retry-btn">
-            <span>다시 도전</span>
+            <span>다시 도���</span>
             <span class="btn-icon">🔄</span>
           </button>
           <button @click="backToSelection" class="back-btn">
@@ -623,18 +720,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <!-- My Profile Button -->
-    <div class="profile-section">
-      <button @click="showProfile" class="profile-btn">
-        <span class="profile-icon">👤</span>
-        <span class="profile-text">마이 프로필</span>
-        <div class="profile-info">
-          <div class="profile-level">Lv.{{ userProfile.level }}</div>
-          <div class="profile-points">{{ userProfile.totalPoints }}P</div>
-        </div>
-      </button>
-    </div>
   </div>
 </template>
 
@@ -655,14 +740,38 @@ onMounted(() => {
 
 /* Dashboard */
 .dashboard {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 1200px) {
+  .dashboard {
+    max-width: 1600px;
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .dashboard {
+    max-width: 1800px;
+  }
 }
 
 .dashboard-header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .dashboard-title {
@@ -677,8 +786,15 @@ onMounted(() => {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 .stat-card {
@@ -741,11 +857,326 @@ onMounted(() => {
   color: #94a3b8;
 }
 
+/* Profile Button */
+.profile-toggle-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.profile-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.profile-icon {
+  font-size: 1.2rem;
+}
+
+.profile-text {
+  font-size: 0.95rem;
+}
+
+/* Profile Section */
+.profile-section {
+  background: white;
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2e8f0;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+:root.dark .profile-section {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+:root.dark .profile-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-bottom-color: #334155;
+}
+
+.profile-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .profile-title {
+  color: #f1f5f9;
+}
+
+.close-profile-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-profile-btn:hover {
+  background: #f1f5f9;
+  color: #1a202c;
+}
+
+:root.dark .close-profile-btn:hover {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.profile-content {
+  padding: 2rem;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-stat-card {
+  background: linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid #fbbf24;
+  transition: all 0.3s ease;
+}
+
+:root.dark .profile-stat-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-color: #f59e0b;
+}
+
+.profile-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.2);
+}
+
+.profile-stat-icon {
+  font-size: 2rem;
+}
+
+.profile-stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a202c;
+  line-height: 1;
+}
+
+:root.dark .profile-stat-value {
+  color: #f1f5f9;
+}
+
+.profile-stat-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+:root.dark .profile-stat-label {
+  color: #94a3b8;
+}
+
+.difficulty-breakdown {
+  margin-bottom: 2rem;
+}
+
+.breakdown-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-title {
+  color: #f1f5f9;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.breakdown-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+:root.dark .breakdown-item {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+.breakdown-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.breakdown-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.breakdown-icon {
+  font-size: 1.2rem;
+}
+
+.breakdown-name {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-name {
+  color: #f1f5f9;
+}
+
+.breakdown-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.breakdown-stat {
+  text-align: center;
+}
+
+.breakdown-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+:root.dark .breakdown-stat-label {
+  color: #94a3b8;
+}
+
+.breakdown-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-stat-value {
+  color: #f1f5f9;
+}
+
+.today-summary {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 2px solid #3b82f6;
+}
+
+:root.dark .today-summary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  border-color: #3b82f6;
+}
+
+.summary-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .summary-title {
+  color: #f1f5f9;
+}
+
+.summary-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+:root.dark .summary-label {
+  color: #cbd5e1;
+}
+
+.summary-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .summary-value {
+  color: #f1f5f9;
+}
+
 /* Difficulty Selection */
 .difficulty-selection {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 1200px) {
+  .difficulty-selection {
+    max-width: 1400px;
+    padding: 4rem 3rem;
+  }
 }
 
 .selection-header {
@@ -775,8 +1206,17 @@ onMounted(() => {
 
 .difficulty-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .difficulty-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
 }
 
 .difficulty-card {
@@ -1379,6 +1819,35 @@ onMounted(() => {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .dashboard {
+    padding: 2.5rem 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .difficulty-selection {
+    padding: 2.5rem 2rem;
+  }
+
+  .difficulty-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .page-title {
     font-size: 2.5rem;
@@ -1409,6 +1878,63 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
+  .dashboard {
+    padding: 1.5rem 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .difficulty-selection {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .difficulty-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .difficulty-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .difficulty-icon {
+    font-size: 2.5rem;
+  }
+
+  .difficulty-title {
+    font-size: 1.3rem;
+  }
+
   .quiz-card {
     padding: 2rem;
   }
@@ -1431,6 +1957,29 @@ onMounted(() => {
 
   .profile-section {
     bottom: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 16px;
+  }
+
+  .profile-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .profile-content {
+    padding: 1.5rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
