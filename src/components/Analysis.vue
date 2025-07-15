@@ -109,10 +109,11 @@
   margin: 0 0 1rem 0;
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 }
 
 .page-description {
