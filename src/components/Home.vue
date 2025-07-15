@@ -457,13 +457,19 @@ const openCalculator = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2rem;
   border-bottom: 2px solid var(--border-color);
   background: linear-gradient(
     135deg,
     var(--bg-secondary) 0%,
-    rgba(251, 191, 36, 0.05) 100%
+    rgba(59, 130, 246, 0.05) 100%
   );
+}
+
+@media (min-width: 1200px) {
+  .block-header {
+    padding: 2.5rem;
+  }
 }
 
 .block-title {
