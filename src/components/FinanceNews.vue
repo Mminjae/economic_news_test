@@ -148,7 +148,7 @@ onMounted(() => {
         <h3 class="empty-title">
           {{
             showBookmarksOnly
-              ? "북마크된 기사가 없습니다"
+              ? "북마크된 기��가 없습니다"
               : "기사를 찾을 수 없습니다"
           }}
         </h3>
@@ -423,7 +423,7 @@ onMounted(() => {
 .news-main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 3rem;
+  padding: 0 3rem 3rem;
 }
 
 .news-grid {
