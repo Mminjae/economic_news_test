@@ -128,7 +128,7 @@ const quizQuestions = {
       ],
       correct: 1,
       explanation:
-        "리카도의 비교우위론에 따르면, 각국이 기회비용이 상대적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
+        "리카도의 비교우위론에 따르면, 각국이 기회비용이 상���적으로 낮은 재화 생산에 특화하여 무역하면 모든 국가가 이익을 얻을 수 있습니다.",
     },
     {
       id: 9,
@@ -847,6 +847,314 @@ onMounted(() => {
 
 :root.dark .stat-label {
   color: #94a3b8;
+}
+
+/* Profile Button */
+.profile-toggle-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.profile-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.profile-icon {
+  font-size: 1.2rem;
+}
+
+.profile-text {
+  font-size: 0.95rem;
+}
+
+/* Profile Section */
+.profile-section {
+  background: white;
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2e8f0;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+:root.dark .profile-section {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+:root.dark .profile-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-bottom-color: #334155;
+}
+
+.profile-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .profile-title {
+  color: #f1f5f9;
+}
+
+.close-profile-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-profile-btn:hover {
+  background: #f1f5f9;
+  color: #1a202c;
+}
+
+:root.dark .close-profile-btn:hover {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.profile-content {
+  padding: 2rem;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-stat-card {
+  background: linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid #fbbf24;
+  transition: all 0.3s ease;
+}
+
+:root.dark .profile-stat-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-color: #f59e0b;
+}
+
+.profile-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.2);
+}
+
+.profile-stat-icon {
+  font-size: 2rem;
+}
+
+.profile-stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a202c;
+  line-height: 1;
+}
+
+:root.dark .profile-stat-value {
+  color: #f1f5f9;
+}
+
+.profile-stat-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+:root.dark .profile-stat-label {
+  color: #94a3b8;
+}
+
+.difficulty-breakdown {
+  margin-bottom: 2rem;
+}
+
+.breakdown-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-title {
+  color: #f1f5f9;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.breakdown-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+:root.dark .breakdown-item {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+.breakdown-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.breakdown-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.breakdown-icon {
+  font-size: 1.2rem;
+}
+
+.breakdown-name {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-name {
+  color: #f1f5f9;
+}
+
+.breakdown-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.breakdown-stat {
+  text-align: center;
+}
+
+.breakdown-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+:root.dark .breakdown-stat-label {
+  color: #94a3b8;
+}
+
+.breakdown-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .breakdown-stat-value {
+  color: #f1f5f9;
+}
+
+.today-summary {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 2px solid #3b82f6;
+}
+
+:root.dark .today-summary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  border-color: #3b82f6;
+}
+
+.summary-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .summary-title {
+  color: #f1f5f9;
+}
+
+.summary-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+:root.dark .summary-label {
+  color: #cbd5e1;
+}
+
+.summary-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+:root.dark .summary-value {
+  color: #f1f5f9;
 }
 
 /* Difficulty Selection */
