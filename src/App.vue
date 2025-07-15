@@ -35,25 +35,29 @@ const checkAuthStatus = () => {
 const handleLogin = (user) => {
   currentUser.value = user;
   isAuthenticated.value = true;
-  showAuthModal.value = false;
+  showAuthPage.value = false;
+  // Redirect to home after login
+  activeTab.value = "home";
 };
 
 const handleLogout = () => {
   localStorage.removeItem("currentUser");
   currentUser.value = null;
   isAuthenticated.value = false;
-  // If currently on My Page, redirect to Asset Analysis
+  // If currently on My Page, redirect to Home
   if (activeTab.value === "my-page") {
-    activeTab.value = "asset-analysis";
+    activeTab.value = "home";
   }
 };
 
 const handleAuthRequired = (tabId) => {
-  showAuthModal.value = true;
+  showAuthPage.value = true;
+  activeTab.value = "my-page";
 };
 
-const closeAuthModal = () => {
-  showAuthModal.value = false;
+const handleShowAuth = () => {
+  showAuthPage.value = true;
+  activeTab.value = "my-page";
 };
 
 // Tab navigation
