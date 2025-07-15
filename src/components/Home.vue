@@ -280,7 +280,7 @@ const personalityTest = ref({
   completed: false,
   result: {
     type: "안정형 투자자",
-    description: "위험을 최소화���고 안정적인 수익을 추구합니다",
+    description: "위험을 최소화하고 안정적인 수익을 추구합니다",
     icon: "🛡️",
     riskLevel: 35,
   },
@@ -786,14 +786,24 @@ const openCalculator = () => {
 }
 
 .test-button.primary {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: white;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.test-button.primary:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 .test-button.secondary {
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 2px solid var(--border-color);
+}
+
+.test-button.secondary:hover {
+  border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
 }
 
 .test-button:hover {
