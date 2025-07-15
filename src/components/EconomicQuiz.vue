@@ -740,9 +740,22 @@ onMounted(() => {
 
 /* Dashboard */
 .dashboard {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
+}
+
+@media (min-width: 1200px) {
+  .dashboard {
+    max-width: 1600px;
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .dashboard {
+    max-width: 1800px;
+  }
 }
 
 .dashboard-header {
