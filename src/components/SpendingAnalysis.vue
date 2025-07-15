@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1 class="page-title">💳 소비분석</h1>
       <p class="page-description">
-        당신의 소비 패턴을 분석하고 현명한 ���출을 도와드립니다
+        당신의 소비 패턴을 분석하고 ���명한 ���출을 도와드립니다
       </p>
     </div>
 
@@ -124,6 +124,7 @@
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .feature-cards {
