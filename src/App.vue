@@ -271,7 +271,7 @@ onMounted(() => {
 
 .app-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 900;
   background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
   -webkit-background-clip: text;
@@ -280,11 +280,24 @@ onMounted(() => {
   letter-spacing: -0.025em;
   text-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .app-title:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
+}
+
+@media (min-width: 1200px) {
+  .app-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .app-title {
+    font-size: 2.5rem;
+  }
 }
 
 .header-actions {
