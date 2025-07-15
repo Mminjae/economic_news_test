@@ -317,24 +317,51 @@ onMounted(() => {
 }
 
 .dark-mode-toggle {
-  background: var(--bg-secondary);
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    var(--bg-primary) 100%
+  );
   border: 2px solid var(--border-color);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.2rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-mode-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.dark-mode-toggle:hover::before {
+  left: 100%;
 }
 
 .dark-mode-toggle:hover {
-  transform: scale(1.1);
-  border-color: #f59e0b;
-  background: rgba(251, 191, 36, 0.1);
+  transform: scale(1.1) rotate(180deg);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 /* Main Content */
